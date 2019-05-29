@@ -1,0 +1,12 @@
+{
+	"capabilities": [
+	{
+		"browserName": "chrome",
+		"version": 71,
+		"maxInstances": 1,
+		"platform": "WINDOWS"
+	}],	
+	"maxSession": 10,
+	"port": -1,
+	"hub": "http://192.168.167.77:4445"
+}
