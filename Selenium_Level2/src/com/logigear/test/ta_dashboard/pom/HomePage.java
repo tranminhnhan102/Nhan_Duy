@@ -15,7 +15,6 @@ public class HomePage extends BasePOM {
 	@Override
 	public void initPageElements() {
 		this.txtRepoName = new Element(getLocator("txtRepoName").getBy());
-		
 	}
 	
 

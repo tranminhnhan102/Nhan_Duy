@@ -20,7 +20,7 @@ public abstract class BasePOM {
 		String platform = TestExecutor.getInstance().getEnvironmentConf().getPlatform().toString();
 		String target = TestExecutor.getInstance().getEnvironmentConf().getRunTarget().toString();
 		// load all locators from JSON file, based on the class-name of the derived class
-		locators = LocatorLoader.getLocatorsByClassName(LoginPage.class, platform, target);
+		locators = LocatorLoader.getLocatorsByClassName(derivedClass, platform, target);
 		
 		initPageElements();
 	}
