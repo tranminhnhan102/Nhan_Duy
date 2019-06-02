@@ -16,13 +16,13 @@ public class LoginTest extends BaseTest{
 		
 		String USERNAME = "administrator";
 		String PASSWORD = "";
-		String SAMPLE_REPO = "TestRepository";
+		String SAMPLE_REPO = "SampleRepository";
 		
 		LoginPage loginpage = new LoginPage();
 		HomePage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
 
 		String actualMsg = homePage.getRepoName();
-		String expectedMsg = "SampleRepositoy";
+		String expectedMsg = "SampleRepository";
 		Assert.assertEquals(actualMsg, expectedMsg, "Can't login with correct credentials");
 	}
 }
