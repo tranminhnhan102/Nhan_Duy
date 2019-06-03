@@ -14,16 +14,25 @@ import com.logigear.testfw.conf.LocatorLoader;
 public abstract class BasePOM {
 	
 	private Map<String, Locator> locators = null;
-	
-	public BasePOM(Class<?> derivedClass)
+
+	protected void loadLocators(Class<?> derivedClass)
 	{
 		String platform = TestExecutor.getInstance().getEnvironmentConf().getPlatform().toString();
 		String target = TestExecutor.getInstance().getEnvironmentConf().getRunTarget().toString();
 		// load all locators from JSON file, based on the class-name of the derived class
-		locators = LocatorLoader.getLocatorsByClassName(derivedClass, platform, target);
+		if (locators != null)
+		{
+			locators = LocatorLoader.getLocatorsByClassName(derivedClass, platform, target);
+		}
+		else
+		{
+			locators = LocatorLoader.getLocatorsByClassName(derivedClass, platform, target);
+		}
+		
 		
 		initPageElements();
 	}
+	
 	
 	protected Locator getLocator(String elementName)
 	{

@@ -1,0 +1,5 @@
+/.metadata/
+*.prefs
+*.class
+*.properties
+Selenium_Level2/target/classes/com/logigear/test/ta_dashboard/pom/LoginPage.class

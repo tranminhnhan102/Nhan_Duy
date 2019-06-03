@@ -15,7 +15,7 @@ public class LoginPage extends BasePOM{
 	public LoginPage()
 	{
 		// read configuration of this class via parent class's instructor
-		super(LoginPage.class);
+		loadLocators(LoginPage.class);
 	}
 	
 	@Override

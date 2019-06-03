@@ -186,7 +186,7 @@ abstract class BaseElement{
 	}
 
 	public void clear() {
-		clear(Common.ELEMENT_LONG_TIMEOUT);
+		clear(Common.ELEMENT_TIMEOUT);
 	}
 
 	public String getTagName(int timeOutInSeconds) {
