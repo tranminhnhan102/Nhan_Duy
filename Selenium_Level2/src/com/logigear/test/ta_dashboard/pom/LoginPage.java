@@ -15,7 +15,7 @@ public class LoginPage extends BasePOM{
 	public LoginPage()
 	{
 		// read configuration of this class via parent class's instructor
-		loadLocators(LoginPage.class);
+		super(LoginPage.class);
 	}
 	
 	@Override
@@ -40,7 +40,7 @@ public class LoginPage extends BasePOM{
 		txtPassword.enter(password);
 		btnLogin.click();
 		
-		return new HomePage().waitForPageDisplay();
+		return new HomePage().waitForLoading();
 	}
 
 	/**

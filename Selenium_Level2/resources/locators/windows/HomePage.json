@@ -1,8 +1,8 @@
 {
 	"default": {
-		"txtRepoName": {
+		"txtBoardByPriority": {
 			"type": "xpath",
-			"value": "//div[@id='header']//a/span"
+			"value": "//div[@id='main-menu']"
 		}
 	}
 }
