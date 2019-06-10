@@ -1,8 +1,8 @@
 {
 	"default": {
-		"txtBoardByPriority": {
+		"menuExecutionDashboard": {
 			"type": "xpath",
-			"value": "//div[@id='main-menu']"
+			"value": "//a[contains(.,'Execution') and contains(.,'Dashboard')]"
 		}
 	}
 }
