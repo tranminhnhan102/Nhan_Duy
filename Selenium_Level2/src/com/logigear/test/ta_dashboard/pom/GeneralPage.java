@@ -17,6 +17,13 @@ public class GeneralPage extends BasePOM {
 		this.txtRepoName = new Element(getLocator("txtRepoName").getBy());
 	}
 
+	/*
+	 * Author:
+	 * Method name:
+	 * Purpose/Description
+	 * Param(if have)
+	 * */
+	
 	public String getRepoName() {
 		return txtRepoName.getText();
 	}

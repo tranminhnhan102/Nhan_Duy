@@ -9,3 +9,6 @@ Day_6_RailWay/.classpath
 *.prefs
 demo/.classpath
 demo/.project
+*.class
+*.MF
+*.properties

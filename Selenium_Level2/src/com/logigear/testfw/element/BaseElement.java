@@ -264,7 +264,6 @@ abstract class BaseElement{
 			LOG.severe(String.format("Has error with control '%s': %s", getLocator().toString(), error.getMessage()));
 			throw error;
 		}
-		LOG.info("get text Success full: " + text);
 		return text;
 	}
 
