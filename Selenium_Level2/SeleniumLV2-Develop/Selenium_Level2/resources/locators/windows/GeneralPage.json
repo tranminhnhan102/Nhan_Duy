@@ -1,8 +1,0 @@
-{
-	"default": {
-		"txtRepoName": {
-			"type": "xpath",
-			"value": "//div[@id='header']//a/span"
-		}
-	}
-}
