@@ -71,6 +71,10 @@
 		"txtIndicatorTitle": {
 			"type": "xpath",
 			"value": "//input[@id='txtIndicatorTitle']"
+		},
+		"cbbStatField": {
+			"type": "xpath",
+			"value": "//select[@id='cbbStatField']"
 		}
 	}
 }

@@ -22,7 +22,8 @@ public class PanelListPage extends GeneralPage {
 	 * 
 	 * */
 	
-	public void clickLinkAddNew() {
+	public AddNewPanelPage clickLinkAddNew() {
 		lnkAddNew.waitForClickable(Common.ELEMENT_TIMEOUT).click();
+		return new AddNewPanelPage();
 	}	
 }

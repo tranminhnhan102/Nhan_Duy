@@ -2,15 +2,17 @@ package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.element.Element;
 
-public class AddNewPanelPage extends GeneralPage{
+public class AddNewPanelPage extends PanelListPage{
 
 	protected Element tabDisplaySetting;
+	protected Element radChart;
 	protected Element radIndicator;
+	protected Element radReport;
 	protected Element txtDisplayName;
 	protected Element txtIndicatorTitle;
 	
 	public AddNewPanelPage() {
-		super(AddNewPanelPage.class);
+		super();
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class AddNewPanelPage extends GeneralPage{
 	 * 
 	 * */
 	
-	public void clickRadioButton() {
+	public void clickIndicatorRadioButton() {
 		radIndicator.waitForClickable(60).click();
 	}	
 }
