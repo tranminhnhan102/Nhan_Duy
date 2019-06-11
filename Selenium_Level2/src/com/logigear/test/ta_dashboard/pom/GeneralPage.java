@@ -8,7 +8,7 @@ public class GeneralPage extends BasePOM {
 
 	// Element
 	protected Element lnkMyProfile;
-	public Element tabExecutionDashboad;
+	protected Element tabExecutionDashboard;
 	
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
@@ -17,17 +17,7 @@ public class GeneralPage extends BasePOM {
 	@Override
 	public void initPageElements() {
 		this.lnkMyProfile = new Element(getLocator("lnkMyProfile").getBy());
-		this.tabExecutionDashboad = new Element(getLocator("tabExecutionDashboad").getBy());
-	}
-	
-	public GeneralPage waitForLoading(int timeOutInSeconds) {
-		lnkMyProfile.waitForClickable(timeOutInSeconds);
-		return this;
-	}
-
-	public GeneralPage waitForLoading() {
-		lnkMyProfile.waitForClickable(Common.ELEMENT_TIMEOUT);
-		return this;
+		this.tabExecutionDashboard = new Element(getLocator("tabExecutionDashboard").getBy());
 	}
 
 }

@@ -5,9 +5,6 @@ import com.logigear.testfw.element.Element;
 
 public class HomePage extends GeneralPage {
 
-	// Element
-	protected Element menuExecutionDashboard;
-
 	public HomePage() {
 		super(HomePage.class);
 	}
@@ -15,17 +12,16 @@ public class HomePage extends GeneralPage {
 	@Override
 	public void initPageElements() {
 		super.initPageElements();
-		this.menuExecutionDashboard = new Element(getLocator("menuExecutionDashboard").getBy());
 	}
 
 	/**
-	 * @author nhan.tran
+	 * @author 
 	 * @description wait page loading.
 	 * @param timeOutInSeconds
 	 * @return
 	 */
 	public HomePage waitForLoading(int timeOutInSeconds) {
-		menuExecutionDashboard.waitForDisplay(timeOutInSeconds);
+		tabExecutionDashboard.waitForDisplay(timeOutInSeconds);
 		LOG.info("Page is loaded successfully");
 		return this;
 	}
@@ -37,5 +33,12 @@ public class HomePage extends GeneralPage {
 	public HomePage waitForLoading() {
 		waitForLoading(Common.ELEMENT_TIMEOUT);
 		return this;
+	}
+	
+	public String checkActiveTab()
+	{
+		String status = tabExecutionDashboard.getClass().toString();
+		System.out.println(status);
+		return status;
 	}
 }

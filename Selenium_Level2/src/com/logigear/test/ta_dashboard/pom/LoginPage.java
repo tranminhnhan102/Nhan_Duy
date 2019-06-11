@@ -1,7 +1,6 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.common.BasePOM;
-import com.logigear.testfw.common.Common;
 import com.logigear.testfw.element.Element;
 
 public class LoginPage extends BasePOM{
@@ -34,13 +33,13 @@ public class LoginPage extends BasePOM{
 	 * @param repo
 	 * @return
 	 */
-	public GeneralPage login(String username, String password, String repo) {
+	public HomePage login(String username, String password, String repo) {
 		cbbRepo.selectByValue(repo);
 		txtUsername.enter(username);
 		txtPassword.enter(password);
 		btnLogin.click();
 		
-		return new GeneralPage(null).waitForLoading();
+		return new HomePage().waitForLoading();
 	}
 
 	/**

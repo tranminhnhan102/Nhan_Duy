@@ -3,6 +3,7 @@ package com.logigear.test.ta_dashboard.testcases;
 import org.testng.annotations.Test;
 
 import com.logigear.test.ta_dashboard.pom.AddNewPanelPage;
+import com.logigear.test.ta_dashboard.pom.GeneralPage;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.test.ta_dashboard.pom.PanelListPage;
@@ -17,9 +18,7 @@ public class PanelTest extends BaseTest{
 		String SAMPLE_REPO = "SampleRepository";
 
 		LoginPage loginpage = new LoginPage();
-		HomePage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
-		homePage.getRepoName();
-
+		GeneralPage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
 
 		PanelListPage panelListPage = new PanelListPage();
 		AddNewPanelPage addNewPanelPage = panelListPage.clickLinkAddNew();
