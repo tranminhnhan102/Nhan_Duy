@@ -34,13 +34,13 @@ public class LoginPage extends BasePOM{
 	 * @param repo
 	 * @return
 	 */
-	public HomePage login(String username, String password, String repo) {
+	public GeneralPage login(String username, String password, String repo) {
 		cbbRepo.selectByValue(repo);
 		txtUsername.enter(username);
 		txtPassword.enter(password);
 		btnLogin.click();
 		
-		return new HomePage().waitForLoading();
+		return new GeneralPage(null).waitForLoading();
 	}
 
 	/**
@@ -57,9 +57,5 @@ public class LoginPage extends BasePOM{
 	 * 
 	 * @return
 	 */
-	public LoginPage waitForLoading() 
-	{
-		waitForLoading(Common.ELEMENT_TIMEOUT);
-		return this;
-	}
+		
 }

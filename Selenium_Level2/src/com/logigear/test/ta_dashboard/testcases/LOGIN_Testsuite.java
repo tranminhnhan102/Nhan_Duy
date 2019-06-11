@@ -3,9 +3,11 @@ package com.logigear.test.ta_dashboard.testcases;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.logigear.test.ta_dashboard.pom.GeneralPage;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.testfw.common.BaseTest;
+import com.logigear.testfw.element.Element;
 
 public class LOGIN_Testsuite extends BaseTest{
 
@@ -19,10 +21,17 @@ public class LOGIN_Testsuite extends BaseTest{
 		String SAMPLE_REPO = "SampleRepository";
 		
 		LoginPage loginpage = new LoginPage();
-		HomePage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
-
-		String actualMsg = homePage.getRepoName();
-		String expectedMsg = "SampleRepository";
-		Assert.assertEquals(actualMsg, expectedMsg, "Can't login with correct credentials");
+		GeneralPage generalPage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
+		
+		String checkTab;
+		try {
+			checkTab = generalPage.tabExecutionDashboad.getClass().toString();
+		} catch (Exception e) {
+			checkTab = "";
+		}
+		
+		System.out.print(checkTab);
+		String expectedTab = "active";
+		Assert.assertEquals(checkTab, expectedTab, "Can't login with correct credentials");
 	}
 }

@@ -1,31 +1,33 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.common.BasePOM;
+import com.logigear.testfw.common.Common;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
 
 	// Element
-	protected Element txtRepoName;
-
+	protected Element lnkMyProfile;
+	public Element tabExecutionDashboad;
+	
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
 	}
 
 	@Override
 	public void initPageElements() {
-		this.txtRepoName = new Element(getLocator("txtRepoName").getBy());
+		this.lnkMyProfile = new Element(getLocator("lnkMyProfile").getBy());
+		this.tabExecutionDashboad = new Element(getLocator("tabExecutionDashboad").getBy());
+	}
+	
+	public GeneralPage waitForLoading(int timeOutInSeconds) {
+		lnkMyProfile.waitForClickable(timeOutInSeconds);
+		return this;
 	}
 
-	/*
-	 * Author:
-	 * Method name:
-	 * Purpose/Description
-	 * Param(if have)
-	 * */
-	
-	public String getRepoName() {
-		return txtRepoName.getText();
+	public GeneralPage waitForLoading() {
+		lnkMyProfile.waitForClickable(Common.ELEMENT_TIMEOUT);
+		return this;
 	}
 
 }

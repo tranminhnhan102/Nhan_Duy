@@ -1,12 +1,44 @@
 {
 	"default": {
+		"itemRepo": {
+			"type": "xpath",
+			"value": "//li/a[@href='#Repository']"
+		},
 		"txtRepoName": {
 			"type": "xpath",
 			"value": "//div[@id='header']//a/span"
 		},
-		"btnAdminister": {
+		"itemAdministrator": {
 			"type": "xpath",
-			"value": "//li[ul/li[@class='sep'] and ul/li/a[@href='profiles.jsp']]/a"
+			"value": "//a[text()='administrator']"
+		},
+		"lnkMyProfile": {
+			"type": "xpath",
+			"value": "//a[text()='My Profile']"
+		},
+		"lnkLogout ": {
+			"type": "xpath",
+			"value": "//a[text()='Logout']"
+		},
+		"itemAdminister": {
+			"type": "xpath",
+			"value": "//a[text()='Administer']"
+		},
+		"lnkDataProfile": {
+			"type": "xpath",
+			"value": "//a[text()='Data Profiles']"
+		},
+		"lnkPanel": {
+			"type": "xpath",
+			"value": "//a[text()='Panels']"
+		},
+		"tabOverview": {
+			"type": "xpath",
+			"value": "//a[text()='Overview']"
+		},
+		"tabExecutionDashboard": {
+			"type": "xpath",
+			"value": "//a[contains(.,'Execution') and contains(.,'Dashboard')]"
 		}
-	}	
+	}
 }

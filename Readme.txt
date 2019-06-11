@@ -3,6 +3,9 @@ Selenium level 2
 Group member: 
 	Nhan Tran
 	Duy Nguyen
+	Tien Tran
+	Hanh Nguyen
+
 TestCase Implemented:
 
 - 
