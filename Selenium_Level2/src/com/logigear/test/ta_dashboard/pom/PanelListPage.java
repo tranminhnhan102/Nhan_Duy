@@ -6,6 +6,7 @@ import com.logigear.testfw.element.Element;
 public class PanelListPage extends GeneralPage {
 
 	protected Element lnkAddNew;
+	
 	public PanelListPage() {
 		super(PanelListPage.class);
 	}
@@ -14,16 +15,17 @@ public class PanelListPage extends GeneralPage {
 	public void initPageElements() {
 		this.lnkAddNew = new Element(getLocator("lnkAddNew").getBy());
 	}
-	
+
 	/*
 	 * Author: Tien Tran
 	 * Method name: clickLinkAddNew()
 	 * Purpose/Description: Click "Add New" on Panel List page.
 	 * 
 	 * */
-	
+
 	public AddNewPanelPage clickLinkAddNew() {
-		lnkAddNew.waitForClickable(Common.ELEMENT_TIMEOUT).click();
+		lnkAddNew.click();
+
 		return new AddNewPanelPage();
 	}	
 }

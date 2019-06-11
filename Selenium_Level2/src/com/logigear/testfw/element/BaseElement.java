@@ -116,6 +116,8 @@ abstract class BaseElement{
 	public void click() {
 		click(Common.ELEMENT_LONG_TIMEOUT);
 	}
+	
+
 
 	public void submit(int timeOutInSeconds) {
 		if (timeOutInSeconds <= 0) {

@@ -3,26 +3,25 @@ package com.logigear.test.ta_dashboard.testcases;
 import org.testng.annotations.Test;
 
 import com.logigear.test.ta_dashboard.pom.AddNewPanelPage;
-import com.logigear.test.ta_dashboard.pom.GeneralPage;
-import com.logigear.test.ta_dashboard.pom.HomePage;
-import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.test.ta_dashboard.pom.PanelListPage;
 import com.logigear.testfw.common.BaseTest;
+import com.logigear.testfw.element.Element;
 
 public class PanelTest extends BaseTest{
 	@Test
 	public void DA_PANEL_TC031() {
 		
-		String USERNAME = "administrator";
-		String PASSWORD = "";
-		String SAMPLE_REPO = "SampleRepository";
-
-		LoginPage loginpage = new LoginPage();
-		GeneralPage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
+		precondition();
+		
+		Element element1 = new Element("//a[@href='#Administer']");
+		element1.click();
+		Element element2 = new Element("//a[@href='panels.jsp']");
+		element2.click();
 
 		PanelListPage panelListPage = new PanelListPage();
 		AddNewPanelPage addNewPanelPage = panelListPage.clickLinkAddNew();
-		addNewPanelPage.clickIndicatorRadioButton();
+		
+		addNewPanelPage.clickIndicatorRadioButton().clickReportRadioButton();
 
 	}
 }
