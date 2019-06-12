@@ -2,7 +2,7 @@ package com.logigear.test.ta_dashboard.testcases;
 
 import org.testng.annotations.Test;
 
-import com.logigear.test.ta_dashboard.pom.AddNewPanelPage;
+import com.logigear.test.ta_dashboard.pom.PanelDialog;
 import com.logigear.test.ta_dashboard.pom.PanelListPage;
 import com.logigear.testfw.common.BaseTest;
 import com.logigear.testfw.element.Element;
@@ -19,7 +19,7 @@ public class PanelTest extends BaseTest{
 		element2.click();
 
 		PanelListPage panelListPage = new PanelListPage();
-		AddNewPanelPage addNewPanelPage = panelListPage.clickLinkAddNew();
+		PanelDialog addNewPanelPage = panelListPage.clickLinkAddNew();
 		
 		addNewPanelPage.clickIndicatorRadioButton().clickReportRadioButton();
 

@@ -75,6 +75,10 @@
 		"cbbStatField": {
 			"type": "xpath",
 			"value": "//select[@id='cbbStatField']"
+		},
+		"cboDataProfile": {
+			"type": "xpath",
+			"value": "//select[@id='cbbProfile']"
 		}
 	}
 }
