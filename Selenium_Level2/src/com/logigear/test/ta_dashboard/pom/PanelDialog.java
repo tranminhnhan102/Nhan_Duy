@@ -2,7 +2,7 @@ package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.element.Element;
 
-public class AddNewPanelPage extends GeneralPage{
+public class PanelDialog extends GeneralPage{
 
 	protected Element tabDisplaySetting;
 	protected Element radChart;
@@ -11,13 +11,14 @@ public class AddNewPanelPage extends GeneralPage{
 	protected Element txtDisplayName;
 	protected Element txtIndicatorTitle;
 	
-	public AddNewPanelPage() {
-		super(AddNewPanelPage.class);
+	public PanelDialog() {
+		super(PanelDialog.class);
 	}
 
 	@Override
 	public void initPageElements() {
 		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
+		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
 		this.radReport = new Element(getLocator("radReport").getBy());
 		this.txtDisplayName = new Element(getLocator("txtDisplayName").getBy());
@@ -31,12 +32,12 @@ public class AddNewPanelPage extends GeneralPage{
 	 * 
 	 * */
 	
-	public AddNewPanelPage clickIndicatorRadioButton() {
+	public PanelDialog clickIndicatorRadioButton() {
 		radIndicator.click();
 		return this;
 	}	
 	
-	public AddNewPanelPage clickReportRadioButton() {
+	public PanelDialog clickReportRadioButton() {
 		radReport.click();
 		return this;
 	}

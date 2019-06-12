@@ -30,7 +30,6 @@ public class Element extends BaseElement {
 		super(xpath);
 	}
 
-
 	public void enter(String text) {
 		clear();
 		sendKeys(text);
@@ -195,7 +194,7 @@ public class Element extends BaseElement {
 		Select selection = new Select(waitForDisplay(timeOutInSeconds));
 		return selection;
 	}
-	
+
 	public void check() {
 		while (!isSelected()) {
 			click();
@@ -339,6 +338,5 @@ public class Element extends BaseElement {
 	public List<String> getOptions() {
 		return getOptions(Common.ELEMENT_LONG_TIMEOUT);
 	}
-
 
 }

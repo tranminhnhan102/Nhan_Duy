@@ -39,6 +39,26 @@
 		"tabExecutionDashboard": {
 			"type": "xpath",
 			"value": "//a[contains(.,'Execution') and contains(.,'Dashboard')]"
+		},
+		"lnkGlobalSetting": {
+			"type": "xpath",
+			"value": "//li[@class='mn-setting']"
+		},
+		"lnkAddPage": {
+			"type": "xpath",
+			"value": "//li[@class='mn-setting']//li[a[text()='Add Page']]"
+		},
+		"lnkChoosePanels": {
+			"type": "xpath",
+			"value": "//li[@class='mn-panels']"
+		},
+		"btnCreateNewPanel": {
+			"type": "xpath",
+			"value": "//span[text()='Create new panel']"
+		},
+		"lnkCreatePanel": {
+			"type": "xpath",
+			"value": "//li[@class='mn-setting']//li[a[text()='Create Panel']]"
 		}
 	}
 }

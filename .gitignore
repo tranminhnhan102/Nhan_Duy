@@ -1,4 +1,6 @@
 /.metadata/
+/.recommenders/
+/.Selenium_Level2/target/classes/META-INF/
 *.prefs
 *.MF
 *.class
