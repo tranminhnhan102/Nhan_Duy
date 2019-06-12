@@ -1,5 +1,8 @@
 /.metadata/
+/.recommenders/
 *.prefs
 *.MF
 *.class
 *.properties
+Selenium_Level2/target/classes/META-INF/maven/Selenium_Java/Selenium_Java/pom.properties
+Selenium_Level2/target/classes/META-INF/MANIFEST.MF
