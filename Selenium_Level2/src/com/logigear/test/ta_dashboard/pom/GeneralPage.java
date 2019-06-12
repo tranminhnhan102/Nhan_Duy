@@ -1,6 +1,7 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.common.BasePOM;
+import com.logigear.testfw.common.Common;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
@@ -30,6 +31,7 @@ public class GeneralPage extends BasePOM {
 		this.lnkChoosePanels = new Element(getLocator("lnkChoosePanels").getBy());
 		this.btnCreateNewPanel = new Element(getLocator("btnCreateNewPanel").getBy());
 		this.lnkCreatePanel = new Element(getLocator("lnkCreatePanel").getBy());
+		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
 	}
 	
 	/**
@@ -61,7 +63,7 @@ public class GeneralPage extends BasePOM {
 			lnkCreatePanel.click();
 		}
 		return new PanelDialog();
-		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
+		
 	}
 	
 	/**
