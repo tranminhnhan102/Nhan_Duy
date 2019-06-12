@@ -15,7 +15,8 @@ public class GeneralPage extends BasePOM {
 	protected Element lnkChoosePanels;
 	protected Element btnCreateNewPanel;
 	protected Element lnkCreatePanel;
-	
+	protected Element itemAdminister;
+
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
 	}
@@ -60,6 +61,25 @@ public class GeneralPage extends BasePOM {
 			lnkCreatePanel.click();
 		}
 		return new PanelDialog();
+		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
+	}
+	
+	/**
+	 * @author nhan.tran
+	 * @Description: Select menu item without <option>tab by hold/click
+	 * @param selectedElement Element that should be select.
+	 */
+
+	public void selectMenuItem(int timeOutInSeconds, Element menuElement, Element selectedElement) {
+		if (timeOutInSeconds <= 0) {
+			timeOutInSeconds = Common.ELEMENT_TIMEOUT;
+		}
+		try {
+			menuElement.moveToElement();
+			selectedElement.click();			
+		} catch (Exception error) {
+			LOG.severe(String.format("Has error when select item in %d", timeOutInSeconds));
+		}
 	}
 
 }
