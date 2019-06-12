@@ -8,6 +8,7 @@ public class PanelDialog extends GeneralPage{
 	protected Element radChart;
 	protected Element radIndicator;
 	protected Element radReport;
+	protected Element radHeatMap;
 	protected Element txtDisplayName;
 	protected Element txtIndicatorTitle;
 	
@@ -21,16 +22,20 @@ public class PanelDialog extends GeneralPage{
 		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
 		this.radReport = new Element(getLocator("radReport").getBy());
+		this.radHeatMap = new Element(getLocator("radHeatMap").getBy());
 		this.txtDisplayName = new Element(getLocator("txtDisplayName").getBy());
 		this.txtIndicatorTitle = new Element(getLocator("txtIndicatorTitle").getBy());
 	}
 	
-	/*
-	 * Author: Tien Tran
-	 * Method name: clickRadioButton()
-	 * Purpose/Description: click all radio button on the page
+	/**
+	 * @author tien.duc.tran
 	 * 
-	 * */
+	 * @description 
+	 * 
+	 * clickIndicatorRadioButton()
+	 * clickReportRadioButton()
+	 * clickHeatMapRadioButton()
+	 */
 	
 	public PanelDialog clickIndicatorRadioButton() {
 		radIndicator.click();
@@ -39,6 +44,11 @@ public class PanelDialog extends GeneralPage{
 	
 	public PanelDialog clickReportRadioButton() {
 		radReport.click();
+		return this;
+	}
+	
+	public PanelDialog clickHeatMapRadioButton() {
+		radHeatMap.click();
 		return this;
 	}
 }

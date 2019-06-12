@@ -17,6 +17,7 @@ public class GeneralPage extends BasePOM {
 	protected Element btnCreateNewPanel;
 	protected Element lnkCreatePanel;
 	protected Element itemAdminister;
+	protected Element lnkPanel;
 
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
@@ -32,6 +33,7 @@ public class GeneralPage extends BasePOM {
 		this.btnCreateNewPanel = new Element(getLocator("btnCreateNewPanel").getBy());
 		this.lnkCreatePanel = new Element(getLocator("lnkCreatePanel").getBy());
 		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
+		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
 	}
 	
 	/**

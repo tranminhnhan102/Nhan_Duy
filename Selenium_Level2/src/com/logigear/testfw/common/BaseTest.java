@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.testfw.conf.DriverConfig;
 import com.logigear.testfw.conf.LogWrapper;
@@ -63,16 +64,17 @@ public class BaseTest {
 	}
 	
 	/*
-	 * Author: Tien Tran
+	 * @author: tien.duc.tran
 	 * Method name: precondition()
 	 * Purpose/Description: Precondition Login to Dashboard
 	 * 
 	 * */
 	
-	public void precondition() {
+	public HomePage precondition() {
 		String USERNAME = "administrator";
 		String PASSWORD = "";
 		String SAMPLE_REPO = "SampleRepository";
-		new LoginPage().login(USERNAME, PASSWORD, SAMPLE_REPO);;
+		HomePage homePage = new LoginPage().login(USERNAME, PASSWORD, SAMPLE_REPO);
+		return homePage;
 	}
 }
