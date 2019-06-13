@@ -3,20 +3,21 @@ package com.logigear.test.ta_dashboard.pom;
 import com.logigear.testfw.element.Element;
 
 public class PanelDialog extends GeneralPage{
-
+	protected Element tabDisplaySetting;
 	protected Element radChart;
 	protected Element radIndicator;
 	protected Element radReport;
 	protected Element radHeatMap;
 	protected Element txtDisplayName;
 	protected Element txtIndicatorTitle;
-	
+
 	public PanelDialog() {
 		super(PanelDialog.class);
 	}
-
+	
 	@Override
 	public void initPageElements() {
+		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
 		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
 		this.radReport = new Element(getLocator("radReport").getBy());
@@ -24,6 +25,7 @@ public class PanelDialog extends GeneralPage{
 		this.txtDisplayName = new Element(getLocator("txtDisplayName").getBy());
 		this.txtIndicatorTitle = new Element(getLocator("txtIndicatorTitle").getBy());
 	}
+
 	/*
 	 * Author: Tien Tran
 	 * Method name: clickRadioButton()
@@ -31,11 +33,20 @@ public class PanelDialog extends GeneralPage{
 	/**
 	 * @author tien.duc.tran
 	 * 
-	 * */
-	 
+	 * 
+	 * @description 
+	 * 
+	 * clickIndicatorRadioButton()
+	 * clickReportRadioButton()
+	 * clickHeatMapRadioButton()
+	 */
 
 	public PanelDialog clickIndicatorRadioButton() {
 		radIndicator.click();
+		return this;
+	}	
+	
+	public PanelDialog clickReportRadioButton() {
 		radReport.click();
 		return this;
 	}
@@ -44,6 +55,4 @@ public class PanelDialog extends GeneralPage{
 		radHeatMap.click();
 		return this;
 	}
-	
-	
 }

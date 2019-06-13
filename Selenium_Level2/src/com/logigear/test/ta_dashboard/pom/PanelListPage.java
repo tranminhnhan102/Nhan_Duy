@@ -25,7 +25,6 @@ public class PanelListPage extends GeneralPage {
 
 	public PanelDialog clickLinkAddNew() {
 		lnkAddNew.click();
-
 		return new PanelDialog();
 	}	
 }

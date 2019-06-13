@@ -41,4 +41,16 @@ public class HomePage extends GeneralPage {
 		System.out.println(status);
 		return status;
 	}
+	
+	/**
+	 * @author tien.duc.tran
+	 * 
+	 * @description select Panel menu item
+	 * 
+	 */
+	
+	public PanelListPage selectPanel() {
+		this.selectMenuItem(0, itemAdminister, lnkPanel);
+		return new PanelListPage();
+	}
 }
