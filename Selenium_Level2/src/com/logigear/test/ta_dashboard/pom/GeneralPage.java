@@ -5,7 +5,7 @@ import com.logigear.testfw.common.Common;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
-	
+
 	protected com.logigear.testfw.utilities.Logger logger = new com.logigear.testfw.utilities.Logger();
 
 	// Element
@@ -35,7 +35,7 @@ public class GeneralPage extends BasePOM {
 		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
 		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
 	}
-	
+
 	/**
 	 * Open Add New Page dialog or Edit Page dialog.
 	 *
@@ -47,27 +47,27 @@ public class GeneralPage extends BasePOM {
 		lnkAddPage.click();
 		return new PageDialog();
 	}
-	
+
 	/**
 	 * Open Add New Panel dialog.
 	 *
 	 * @author hanh.nguyen
-	 * @param isFromChoosePanels   open the dialog from "Choose Panels" linked button or from "Global Setting" linked button
+	 * @param isFromChoosePanels open the dialog from "Choose Panels" linked button
+	 *                           or from "Global Setting" linked button
 	 */
 	public PanelDialog openPanelDialog(boolean isFromChoosePanels) {
 		logger.printMessage("Open \"Add New Panel\" dialog.");
-		if(isFromChoosePanels) {
+		if (isFromChoosePanels) {
 			lnkChoosePanels.click();
 			btnCreateNewPanel.click();
-		}
-		else if(!isFromChoosePanels) {
+		} else if (!isFromChoosePanels) {
 			lnkGlobalSetting.click();
 			lnkCreatePanel.click();
 		}
 		return new PanelDialog();
-		
+
 	}
-	
+
 	/**
 	 * @author nhan.tran
 	 * @Description: Select menu item without <option>tab by hold/click
@@ -80,10 +80,9 @@ public class GeneralPage extends BasePOM {
 		}
 		try {
 			menuElement.moveToElement();
-			selectedElement.click();			
+			selectedElement.click();
 		} catch (Exception error) {
 			LOG.severe(String.format("Has error when select item in %d", timeOutInSeconds));
 		}
 	}
-
 }

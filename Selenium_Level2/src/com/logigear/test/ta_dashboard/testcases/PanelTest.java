@@ -34,6 +34,6 @@ public class PanelTest extends BaseTest{
 		addNewPanelPage.clickReportRadioButton();
 		
 		addNewPanelPage.clickHeatMapRadioButton();
-
+//
 	}
 }

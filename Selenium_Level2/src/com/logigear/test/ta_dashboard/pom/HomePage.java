@@ -1,7 +1,6 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.common.Common;
-import com.logigear.testfw.element.Element;
 
 public class HomePage extends GeneralPage {
 
@@ -35,16 +34,19 @@ public class HomePage extends GeneralPage {
 		return this;
 	}
 	
-	public String checkActiveTab()
+	/**
+	 * @author nhan.tran
+	 * @Description: Check main page apears.
+	 * 
+	 */
+	
+	public boolean checkMainPageApears()
 	{
-		String status = tabExecutionDashboard.getClass().toString();
-		System.out.println(status);
-		return status;
+		return tabExecutionDashboard.isExisted();
 	}
 	
 	/**
 	 * @author tien.duc.tran
-	 * 
 	 * @description select Panel menu item
 	 * 
 	 */
