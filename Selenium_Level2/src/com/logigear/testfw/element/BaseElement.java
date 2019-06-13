@@ -407,6 +407,24 @@ abstract class BaseElement{
 		return isEnabled(Common.ELEMENT_LONG_TIMEOUT);
 	}
 
+	/**
+	 * @author nhan.tran
+	 * @Description: Check that element could be clicked (updating)
+	 * @return 	true if element can click
+	 * 			false if element cannot click
+	 * */
+	
+	public boolean isClickEnabled(int timeOutInSeconnds)
+	{
+		boolean isClickEnabled=false;
+		return isClickEnabled;
+	}
+	
+	public boolean isClickEnabled()
+	{
+		return isClickEnabled(Common.ELEMENT_TIMEOUT);
+	}
+	
 	public boolean isSelected(int timeOutInSeconds) {
 		boolean isSelected = false;
 		if (timeOutInSeconds <= 0) {

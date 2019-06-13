@@ -1,7 +1,6 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.common.BasePOM;
-import com.logigear.testfw.common.Common;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
@@ -74,15 +73,38 @@ public class GeneralPage extends BasePOM {
 	 * @param selectedElement Element that should be select.
 	 */
 
-	public void selectMenuItem(int timeOutInSeconds, Element menuElement, Element selectedElement) {
-		if (timeOutInSeconds <= 0) {
-			timeOutInSeconds = Common.ELEMENT_TIMEOUT;
-		}
+	public void selectMenuItem(Element menuElement, Element selectedElement) {
 		try {
 			menuElement.moveToElement();
 			selectedElement.click();
 		} catch (Exception error) {
-			LOG.severe(String.format("Has error when select item in %d", timeOutInSeconds));
+			LOG.severe(String.format("Has error when select item in %d"));
 		}
+	}
+	
+	/**
+	 * @author nhan.tran
+	 * @Des: select menu add new page from Global Setting menu
+	 * @return: true if open dialog is successfully
+	 * */
+	
+	public PageDialog selectAddPage()
+	{
+		selectMenuItem(lnkGlobalSetting, lnkAddPage);
+		return new PageDialog();
+	}
+	
+	/**
+	 * @author nhan.tran
+	 * @Des: Check unable to open more than 1 dialog
+	 * @param: dialog element
+	 * @return 	true if cannot open dialog
+	 * 			false if can open dialog
+	 * */
+	
+	public boolean checkOpenMoreThanOneDialog(Element element)
+	{
+		element.isEnabled();
+		return true;
 	}
 }

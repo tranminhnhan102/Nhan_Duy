@@ -52,7 +52,8 @@ public class HomePage extends GeneralPage {
 	 */
 	
 	public PanelListPage selectPanel() {
-		this.selectMenuItem(0, itemAdminister, lnkPanel);
+		this.selectMenuItem(itemAdminister, lnkPanel);
+
 		return new PanelListPage();
 	}
 }
