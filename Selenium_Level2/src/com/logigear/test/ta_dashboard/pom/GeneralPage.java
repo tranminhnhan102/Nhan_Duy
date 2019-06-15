@@ -93,18 +93,5 @@ public class GeneralPage extends BasePOM {
 		selectMenuItem(lnkGlobalSetting, lnkAddPage);
 		return new PageDialog();
 	}
-	
-	/**
-	 * @author nhan.tran
-	 * @Des: Check unable to open more than 1 dialog
-	 * @param: dialog element
-	 * @return 	true if cannot open dialog
-	 * 			false if can open dialog
-	 * */
-	
-	public boolean checkOpenMoreThanOneDialog(Element element)
-	{
-		element.isEnabled();
-		return true;
-	}
+
 }

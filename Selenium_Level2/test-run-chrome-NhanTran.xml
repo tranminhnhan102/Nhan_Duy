@@ -4,7 +4,8 @@
 	<test name="FirstTest">
 		<parameter name="environment" value="windows-chrome" />
 		<classes>
-			<class name="com.logigear.test.ta_dashboard.testcases.LoginTest" />
+<!-- 			<class name="com.logigear.test.ta_dashboard.testcases.LoginTest" /> -->
+			<class name="com.logigear.test.ta_dashboard.testcases.MPTest_Nhan" />
 		</classes>
 	</test>
 </suite>

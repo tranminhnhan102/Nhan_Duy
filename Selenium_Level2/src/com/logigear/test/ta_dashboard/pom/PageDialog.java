@@ -68,5 +68,22 @@ public class PageDialog extends GeneralPage{
 		return new PageDialog();
 	}
 
-
+	
+	/**
+	 * @author nhan.tran
+	 * @Des: Check unable to open add page again
+	 * @param: 
+	 * @return 	true if cannot open dialog
+	 * 			false if can open dialog
+	 * */
+	
+	public boolean isOpenAddPageAgains()
+	{
+		try {
+			selectAddPage();
+			return true;
+		} catch (Exception error) {
+			return false;
+		}
+	}
 }
