@@ -64,7 +64,7 @@ public class PageDialog extends GeneralPage{
 	}
 	
 	public PageDialog fillInfoInPageDialog(Page page) {
-		fillInfoInPageDialog(page.getPageName(), page.getParentName(), page.getNumberOfColumns(), page.getDisplayAfter(), page.getIsPublic());
+		fillInfoInPageDialog(page.getPageName(), page.getParentName(), page.getNumberOfColumns(), page.getDisplayAfter(), page.isIsPublic());
 		return new PageDialog();
 	}
 

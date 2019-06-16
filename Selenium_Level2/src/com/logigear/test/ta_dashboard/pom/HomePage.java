@@ -10,7 +10,7 @@ public class HomePage extends GeneralPage {
 
 	@Override
 	public void initPageElements() {
-		super.initPageElements();
+		super.initPageElements();		
 	}
 
 	/**
