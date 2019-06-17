@@ -44,31 +44,31 @@ abstract class BaseElement{
 	}
 
 	protected WebElement waitForPresent(int timeOutInSeconds) {
-		LOG.info(String.format("Wait for control %s to be present in DOM with timeOut %s", getLocator().toString(),
-				timeOutInSeconds));
+//		LOG.info(String.format("Wait for control %s to be present in DOM with timeOut %s", getLocator().toString(),
+//				timeOutInSeconds));
 		return TestExecutor.getInstance().getCurrentDriver().waitForPresent(getLocator(), timeOutInSeconds);
 	}
 
 	protected List<WebElement> waitForAllElementsPresent(int timeOutInSeconds) {
-		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s", getLocator().toString(),
-				timeOutInSeconds));
+//		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s", getLocator().toString(),
+//				timeOutInSeconds));
 		return TestExecutor.getInstance().getCurrentDriver().waitForAllElementsPresent(getLocator(), timeOutInSeconds);
 	}
 	
 	protected List<WebElement> waitForAllElementsDisplay(int timeOutInSeconds) {
-		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s", getLocator().toString(),
-				timeOutInSeconds));
+//		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s", getLocator().toString(),
+//				timeOutInSeconds));
 		return TestExecutor.getInstance().getCurrentDriver().waitForAllElementsDisplay(getLocator(), timeOutInSeconds);
 	}
 
 	public WebElement waitForDisplay(int timeOutInSeconds) {
-		LOG.info(String.format("Wait for control %s to be displayed with timeOut: %s", getLocator().toString(),
-				timeOutInSeconds));
+//		LOG.info(String.format("Wait for control %s to be displayed with timeOut: %s", getLocator().toString(),
+//				timeOutInSeconds));
 		return TestExecutor.getInstance().getCurrentDriver().waitForDisplay(getLocator(), timeOutInSeconds);
 	}
 
 	public WebElement waitForClickable(int timeOutInSeconds) {
-		LOG.info(String.format("Wait for control %s to be clickabled", getLocator().toString()));
+//		LOG.info(String.format("Wait for control %s to be clickabled", getLocator().toString()));
 		return TestExecutor.getInstance().getCurrentDriver().waitForClickable(getLocator(), timeOutInSeconds);
 	}
 //
@@ -406,7 +406,7 @@ abstract class BaseElement{
 	public boolean isEnabled() {
 		return isEnabled(Common.ELEMENT_LONG_TIMEOUT);
 	}
-
+	
 	public boolean isSelected(int timeOutInSeconds) {
 		boolean isSelected = false;
 		if (timeOutInSeconds <= 0) {

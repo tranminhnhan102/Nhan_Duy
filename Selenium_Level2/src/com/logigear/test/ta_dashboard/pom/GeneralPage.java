@@ -84,16 +84,25 @@ public class GeneralPage extends BasePOM {
 	 * @param selectedElement Element that should be select.
 	 */
 
-	public void selectMenuItem(int timeOutInSeconds, Element menuElement, Element selectedElement) {
-		if (timeOutInSeconds <= 0) {
-			timeOutInSeconds = Common.ELEMENT_TIMEOUT;
-		}
+	public void selectMenuItem(Element menuElement, Element selectedElement) {
 		try {
 			menuElement.moveToElement();
 			selectedElement.click();
 		} catch (Exception error) {
-			LOG.severe(String.format("Has error when select item in %d", timeOutInSeconds));
+			LOG.severe(String.format("Has error when select item in %d"));
 		}
+	}
+	
+	/**
+	 * @author nhan.tran
+	 * @Des: select menu add new page from Global Setting menu
+	 * @return: true if open dialog is successfully
+	 * */
+	
+	public PageDialog selectAddPage()
+	{
+		selectMenuItem(lnkGlobalSetting, lnkAddPage);
+		return new PageDialog();
 	}
 
 	/**
