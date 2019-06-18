@@ -10,10 +10,10 @@ import com.logigear.testfw.common.BaseTest;
 public class ModifyPageTest extends BaseTest{
 	
 	@Test
-	public void TC001() {
+	public void DA_PANEL_TC064() {
 		
 		System.out.println(
-				"TC001 - Verify that user can login specific repository successfully via Dashboard login page with correct credentials");
+				"DA_PANEL_TC064 - Verify that \"Check All/Uncheck All\" links are working correctly.			");
 		
 		String USERNAME = "administrator";
 		String PASSWORD = "";
@@ -22,9 +22,6 @@ public class ModifyPageTest extends BaseTest{
 		LoginPage loginpage = new LoginPage();
 		HomePage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
 		
-		String checkTab = homePage.checkActiveTab();
-		String expectedTab = "class com.logigear.testfw.element.Element";
-		Assert.assertEquals(checkTab, expectedTab, "Can't login with correct credentials");
 	}
 
 }

@@ -15,7 +15,7 @@ public class BaseDataObject {
 	ArrayList<Object> obj = null;
 	public BaseDataObject() {
 		// TODO Auto-generated constructor stub
-		this.obj = 
+		//this.obj = 
 	}
 	public BaseDataObject parseData(String dataName) {
 		String filePath = new StringBuilder()

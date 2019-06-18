@@ -34,12 +34,11 @@ public class LoginPage extends BasePOM{
 	 * @param repo
 	 * @return
 	 */
-	public HomePage login(String username, String password, String repo) {
+	public HomePage login(String repo, String username, String password) {
 		cbbRepo.selectByValue(repo);
 		txtUsername.enter(username);
 		txtPassword.enter(password);
 		btnLogin.click();
-		
 		return new HomePage().waitForLoading();
 	}
 

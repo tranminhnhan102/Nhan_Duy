@@ -42,7 +42,6 @@ public class GeneralPage extends BasePOM {
 
 	@Override
 	public void initPageElements() {
-		//Page page = new Page();
 		this.lnkMyProfile = new Element(getLocator("lnkMyProfile").getBy());
 		this.tabExecutionDashboard = new Element(getLocator("tabExecutionDashboard").getBy());
 		this.lnkGlobalSetting = new Element(getLocator("lnkGlobalSetting").getBy());
@@ -52,11 +51,11 @@ public class GeneralPage extends BasePOM {
 		this.lnkCreatePanel = new Element(getLocator("lnkCreatePanel").getBy());
 		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
 		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
-		this.lnkPage = new Element(getLocator("lnkPage").getBy(page.getPageName()));
 	}
 	
-	public void initObject(String pageName, String parentName) {
-		page.setPageName(pageName);
+	public void setPagename(String abc)
+	{
+		Element e = new Element(getLocator("lnkPage").getBy(abc));
 	}
 
 	/**

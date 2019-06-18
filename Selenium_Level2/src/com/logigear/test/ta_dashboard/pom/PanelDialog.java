@@ -55,4 +55,12 @@ public class PanelDialog extends GeneralPage{
 		radHeatMap.click();
 		return this;
 	}
+	
+//	public enum ChartType() {
+//		CHART("Chart"),
+//		INDICATOR("Indicator"),
+//		REPORT("Report"),
+//		HEAT_MAP("Heat Map");
+//	}
+	
 }
