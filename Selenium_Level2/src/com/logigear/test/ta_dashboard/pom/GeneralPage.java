@@ -153,4 +153,17 @@ public class GeneralPage extends BasePOM {
 		String url = TestExecutor.getInstance().getCurrentDriver().getCurrentUrl();
 		return url;
 	}
-}
+	
+	/**
+	 * @author NhanTran
+	 * @description: getText of element
+	 * */
+	
+	public String getTextOfElementAfter(String elementBefore)
+	{
+		String xpath = String.format("//ul[./li/a[text()='%s']]/li)[2]", elementBefore);
+		Element element = new Element(xpath);
+		String result = element.getText();
+		return result;
+	}
+	}

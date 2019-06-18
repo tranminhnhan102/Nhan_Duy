@@ -79,7 +79,9 @@ public class LocatorLoader {
 			JSONObject jsonDefaultTarget = jObject.getJSONObject(testTarget);
 			
 			if( jsonDefaultTarget != null) {
-				JSONArray arrProperties = jsonDefaultTarget.names();			
+				JSONArray arrProperties = jsonDefaultTarget.names();
+				if(arrProperties == null)
+					return locators;
 				for(int i = 0; i < arrProperties.length(); i++){
 					String propertyName = arrProperties.getString(i);
 					JSONObject jsonLocator = jsonDefaultTarget.getJSONObject(propertyName);
