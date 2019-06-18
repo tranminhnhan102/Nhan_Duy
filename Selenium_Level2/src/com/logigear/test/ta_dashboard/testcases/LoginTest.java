@@ -2,11 +2,10 @@ package com.logigear.test.ta_dashboard.testcases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import com.logigear.test.ta_dashboard.pom.GeneralPage;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.testfw.common.BaseTest;
+import com.logigear.testfw.utilities.Logger;
 
 public class LoginTest extends BaseTest{
 
@@ -21,9 +20,8 @@ public class LoginTest extends BaseTest{
 		
 		LoginPage loginpage = new LoginPage();
 		HomePage homePage = loginpage.login(USERNAME, PASSWORD, SAMPLE_REPO);
-		
-		String checkTab = homePage.checkActiveTab();
-		String expectedTab = "class com.logigear.testfw.element.Element";
-		Assert.assertEquals(checkTab, expectedTab, "Can't login with correct credentials");
+		boolean actual = homePage.checkMainPageApears();
+		boolean expected = true;
+		Assert.assertEquals(actual,expected, "Can't login with correct credentials");
 	}
 }

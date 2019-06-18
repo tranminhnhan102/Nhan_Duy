@@ -64,8 +64,26 @@ public class PageDialog extends GeneralPage{
 	}
 	
 	public PageDialog fillInfoInPageDialog(Page page) {
-		fillInfoInPageDialog(page.getPageName(), page.getParentName(), page.getNumberOfColumns(), page.getDisplayAfter(), page.getIsPublic());
+		fillInfoInPageDialog(page.getPageName(), page.getParentName(), page.getNumberOfColumns(), page.getDisplayAfter(), page.isIsPublic());
 		return new PageDialog();
 	}
 
+	
+	/**
+	 * @author nhan.tran
+	 * @Des: Check unable to open add page again
+	 * @param: 
+	 * @return 	true if cannot open dialog
+	 * 			false if can open dialog
+	 * */
+	
+	public boolean isOpenAddPageAgains()
+	{
+		try {
+			selectAddPage();
+			return true;
+		} catch (Exception error) {
+			return false;
+		}
+	}
 }
