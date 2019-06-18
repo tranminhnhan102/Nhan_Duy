@@ -59,6 +59,10 @@
 		"lnkCreatePanel": {
 			"type": "xpath",
 			"value": "//li[@class='mn-setting']//li[a[text()='Create Panel']]"
+		},
+		"lnkPage": {
+			"type": "xpath",
+			"value": "//li[a[text()='%s']]"
 		}
 	}
 }

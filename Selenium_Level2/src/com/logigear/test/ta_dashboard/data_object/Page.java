@@ -7,7 +7,9 @@ public class Page extends BaseDataObject{
 
 	public Page() {
 	}
-
+	public Page(String pageName) {
+		_pageName = pageName;
+	}
 	public Page(String pageName, String parentName, String numberOfColumns, String displayAfter, boolean isPublic) {
 		this._pageName = pageName;
 		this._parentName = parentName;
@@ -61,5 +63,5 @@ public class Page extends BaseDataObject{
 	{
 		Page page = new Page("Page Name", "Select parent", "2", "Overview", true);
 		return page;
-	}
+
 }

@@ -32,4 +32,9 @@ public class Locator {
 	public By getBy() {
 		return by;
 	}
+	
+	public By getBy(Object... args) {
+		String tmp = String.format(value, args);
+		return LocatorLoader.getByLocator(type, tmp);
+	}
 }
