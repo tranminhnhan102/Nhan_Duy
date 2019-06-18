@@ -35,8 +35,4 @@ public class Page {
 	public void setIsPublic(boolean _isPublic) {
 		this._isPublic = _isPublic;
 	}
-	
-	public Page(String pageName) {
-		_pageName = pageName;
-	}
 }

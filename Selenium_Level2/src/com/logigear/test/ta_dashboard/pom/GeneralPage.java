@@ -1,7 +1,9 @@
 package com.logigear.test.ta_dashboard.pom;
 
+import com.logigear.test.ta_dashboard.data_object.Page;
 import com.logigear.testfw.common.BasePOM;
 import com.logigear.testfw.common.Common;
+import com.logigear.testfw.common.TestExecutor;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
@@ -18,13 +20,17 @@ public class GeneralPage extends BasePOM {
 	protected Element lnkCreatePanel;
 	protected Element itemAdminister;
 	protected Element lnkPanel;
-
+	protected Element lnkPage;
+	public Page page;
+	
+	
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
 	}
 
 	@Override
 	public void initPageElements() {
+		Page page = new Page();
 		this.lnkMyProfile = new Element(getLocator("lnkMyProfile").getBy());
 		this.tabExecutionDashboard = new Element(getLocator("tabExecutionDashboard").getBy());
 		this.lnkGlobalSetting = new Element(getLocator("lnkGlobalSetting").getBy());
@@ -34,6 +40,11 @@ public class GeneralPage extends BasePOM {
 		this.lnkCreatePanel = new Element(getLocator("lnkCreatePanel").getBy());
 		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
 		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
+		this.lnkPage = new Element(getLocator("lnkPage").getBy(page.getPageName()));
+	}
+	
+	public void initObject(String pageName, String parentName) {
+		page.setPageName(pageName);
 	}
 	
 	/**
@@ -84,6 +95,16 @@ public class GeneralPage extends BasePOM {
 		} catch (Exception error) {
 			LOG.severe(String.format("Has error when select item in %d", timeOutInSeconds));
 		}
+	}
+	
+	/**
+	 * @author hanh.nguyen
+	 * @Description: Verify that the page is opened or not
+	 * @param pageName	name of the page
+	 */
+	public boolean isPageOpened(String pageName) {
+		String actualTitle = TestExecutor.getInstance().getCurrentDriver().getTitle();
+		return actualTitle.contains(pageName);
 	}
 
 }

@@ -2,12 +2,14 @@ package com.logigear.testfw.element;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 import com.google.common.base.Stopwatch;
@@ -432,4 +434,33 @@ abstract class BaseElement{
 	public boolean isSelected() {
 		return isSelected(Common.ELEMENT_LONG_TIMEOUT);
 	}
+	
+//	public String getPageTitle(int timeOutInSeconds) {
+////		LOG.info(String.format("Get the tab page title with timeOut %s", timeOutInSeconds));
+////		return TestExecutor.getInstance().getCurrentDriver().getTitle();
+//		LOG.info(String.format("Get the tab page title with timeOut %s", timeOutInSeconds));
+//		String title = null;
+//		if (timeOutInSeconds <= 0) {
+//			LOG.severe("The time out is invalid. It must greater than 0");
+//			return title;
+//		}
+//		Stopwatch sw = Stopwatch.createStarted();
+//		try {
+//			title = getElement().getTagName();
+//		} catch (WebDriverException ex) {
+//			if (sw.elapsed(TimeUnit.SECONDS) < (long) timeOutInSeconds) {
+//				LOG.warning("Try to get the title page again.");
+//				getPageTitle(timeOutInSeconds - (int) sw.elapsed(TimeUnit.SECONDS));
+//			}
+//		} catch (Exception error) {
+//			LOG.severe(String.format("Has error: %s", error.getMessage()));
+//			throw error;
+//		}
+//		return title;
+//	}
+//
+//	public String getPageTitle() {
+//		return getTagName(Common.ELEMENT_LONG_TIMEOUT);
+//	}
+	
 }
