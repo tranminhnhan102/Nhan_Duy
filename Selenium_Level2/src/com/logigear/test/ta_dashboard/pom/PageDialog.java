@@ -86,29 +86,42 @@ public class PageDialog extends GeneralPage {
 		}
 	}
 
-	public void setField(Page data) {
-		Page page = new Page();
-		page.loadDefaultData();
-		
-		if (!page.getPageName().equals(null))
-			txtPageName.setValue(page.getPageName());
-		
-		if (!page.getParentName().equals(null) && !page.getParentName().equals("Select parent"))
-			cboParentPage.selectByText(page.getParentName());
-		
-		if (!page.getNumberOfColumns().equals(null))
-			cboNumberOfColumns.selectByText(page.getNumberOfColumns());
-		
-		if (!page.getDisplayAfter().equals(null))
-			txtPageName.setValue(page.getDisplayAfter());
-		
-		if (page.isIsPublic())
-			chkIsPublic.check();
+	public boolean setField(Page data) {
+		boolean result = true;
+		try {
+			if (data.getPageName().toString() != "")
+				LOG.info("use data input");
+		} catch (Exception e) {
+			// TODO: handle exception
+			LOG.info("Using default data input");
+			Page page = new Page();
+			data = page.loadDefaultData();
+		}
+
+		if (data.getPageName() == "")
+			result = false;
+		else
+			txtPageName.enter(data.getPageName());
+
+		if (data.getParentName() != "")
+			cboParentPage.selectByText(data.getParentName());
+
+		if (data.getNumberOfColumns() != "")
+			cboNumberOfColumns.selectByText(data.getNumberOfColumns());
+
+		if (data.getDisplayAfter() != "")
+			cboDisplayAfter.selectByText(data.getDisplayAfter());
+
+		chkIsPublic.check();
+
+		return result;
 	}
-	
-	public HomePage submit()
-	{
-		btnOK.click();
+
+	public HomePage createNewPage(Page data) {
+		if (setField(data))
+			btnOK.click();
+		else
+			LOG.severe("Has error when enter value to field");
 		return new HomePage();
 	}
 }

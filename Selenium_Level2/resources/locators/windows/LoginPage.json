@@ -2,7 +2,7 @@
 	"default": {
 		"cbbRepo": {
 			"type": "xpath",
-			"value": "//div[@class='item repo']/select"
+			"value": "//select[@name='repository']"
 		},
 		"txtUsername": {
 			"type": "xpath",

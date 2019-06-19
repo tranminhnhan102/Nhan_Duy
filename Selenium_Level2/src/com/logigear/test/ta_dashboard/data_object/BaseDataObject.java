@@ -40,10 +40,6 @@ public class BaseDataObject {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		BaseDataObject data = new Gson().fromJson(jsonString, BaseDataObject.class);
-		//return data;
-		Map<String, Object> mapObj = new Gson().fromJson(jsonString, new TypeToken<HashMap<String, Object>>(){}.getType());
-		System.out.print("aa");
-		// Show it.
+
 	}
 }

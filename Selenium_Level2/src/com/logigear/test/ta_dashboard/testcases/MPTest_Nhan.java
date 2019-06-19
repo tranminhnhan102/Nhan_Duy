@@ -19,10 +19,8 @@ public class MPTest_Nhan extends BaseTest{
 		PageDialog pageDialog = homePage.selectAddPage();
 		
 //		Step	Enter Page Name field
-		pageDialog.setField(null);
-		
 //		Step	Click OK button
-		pageDialog.submit();
+		homePage = pageDialog.createNewPage(null);
 		
 //		VP	Check "Test" page is displayed besides "Overview" page
 		String expected = "Overview";
