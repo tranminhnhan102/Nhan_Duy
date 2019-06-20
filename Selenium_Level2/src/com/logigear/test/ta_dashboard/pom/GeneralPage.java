@@ -181,7 +181,7 @@ public class GeneralPage extends BasePOM {
 	
 	public String getTextOfElementAfter(String elementBefore)
 	{
-		String xpath = String.format("//ul[./li/a[text()='%s']]/li)[2]", elementBefore);
+		String xpath = String.format("(//ul[./li/a[text()='%s']]/li)[2]", elementBefore);
 		Element element = new Element(xpath);
 		String result = element.getText();
 		return result;
