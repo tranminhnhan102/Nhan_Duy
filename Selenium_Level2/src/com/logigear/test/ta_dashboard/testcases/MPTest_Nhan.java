@@ -28,8 +28,7 @@ public class MPTest_Nhan extends BaseTest{
 		
 //		VP	Check "Test" page is displayed besides "Overview" page
 		String expected = page.getPageName();
-		String actual = homePage.getTextOfElementAfter("Overview");
-		
+		String actual = homePage.getTextOfElementAfter(page.getDisplayAfter());	
 		assertEquals(actual, expected);
 	}
 }

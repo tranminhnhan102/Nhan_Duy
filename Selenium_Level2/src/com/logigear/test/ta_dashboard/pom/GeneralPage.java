@@ -176,7 +176,7 @@ public class GeneralPage extends BasePOM {
 	
 	/**
 	 * @author NhanTran
-	 * @description: getText of element
+	 * @description: Get "Test" page is displayed besides "Overview" page
 	 * */
 	
 	public String getTextOfElementAfter(String elementBefore)
