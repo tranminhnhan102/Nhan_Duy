@@ -1,5 +1,6 @@
 package com.logigear.test.ta_dashboard.pom;
 
+import com.logigear.test.ta_dashboard.data_object.User;
 import com.logigear.testfw.common.BasePOM;
 import com.logigear.testfw.element.Element;
 
@@ -43,6 +44,20 @@ public class LoginPage extends BasePOM{
 	}
 
 	/**
+	 * @author Nhan.Tran
+	 * @param User object
+	 * @return home page object
+	 */
+	public HomePage login(User user)
+	{
+		cbbRepo.selectByValue(user.getRepository());
+		txtUsername.enter(user.getUserName());
+		txtPassword.enter(user.getPassword());
+		btnLogin.click();
+		return new HomePage().waitForLoading();
+	}
+	
+	/**
 	 * 
 	 * @param timeOutInSeconds
 	 * @return
@@ -51,10 +66,4 @@ public class LoginPage extends BasePOM{
 		btnLogin.waitForClickable(timeOutInSeconds);
 		return this;
 	}
-
-	/**
-	 * 
-	 * @return
-	 */
-		
 }

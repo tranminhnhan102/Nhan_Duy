@@ -30,12 +30,6 @@ public class PanelDialog extends GeneralPage{
 	 * Author: Tien Tran
 	 * Method name: clickRadioButton()
 	 * Purpose/Description: click all radio button on the page
-	/**
-	 * @author tien.duc.tran
-	 * 
-	 * 
-	 * @description 
-	 * 
 	 * clickIndicatorRadioButton()
 	 * clickReportRadioButton()
 	 * clickHeatMapRadioButton()
@@ -55,12 +49,6 @@ public class PanelDialog extends GeneralPage{
 		radHeatMap.click();
 		return this;
 	}
-	
-//	public enum ChartType() {
-//		CHART("Chart"),
-//		INDICATOR("Indicator"),
-//		REPORT("Report"),
-//		HEAT_MAP("Heat Map");
-//	}
+
 	
 }

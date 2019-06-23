@@ -4,15 +4,15 @@ import org.testng.asserts.SoftAssert;
 
 public class SortAssertion {
 	
-	SoftAssert sortAssertion = new SoftAssert();
+	SoftAssert softAssertion = new SoftAssert();
 	
 	public void sortAssertEquals (String actual, String expected)
 	{
-		sortAssertion.assertEquals(actual, expected);
+		softAssertion.assertEquals(actual, expected);
 	}
 	
 	public void sortAssertTrue (Boolean condition)
 	{
-		sortAssertion.assertTrue(condition);
+		softAssertion.assertTrue(condition);
 	}
 }

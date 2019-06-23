@@ -13,6 +13,12 @@ public class User {
 		this.password = password;
 		this.repository = repository;
 	}
+	
+	public User()
+	{
+		
+	}
+	
 	public String getUserName() {
 		return username;
 	}
@@ -35,5 +41,11 @@ public class User {
 
 	public void setRepository(String repository) {
 		this.repository = repository;
+	}
+	
+	public User getDefaultUser()
+	{
+		User userDefault = new User("Administrator", "", "SampleRepository");
+		return userDefault;
 	}
 }

@@ -2,16 +2,8 @@ package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.test.ta_dashboard.data_object.Page;
 import com.logigear.testfw.common.BasePOM;
-import com.logigear.testfw.common.Common;
 import com.logigear.testfw.common.TestExecutor;
-import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 
-import com.logigear.testfw.common.BasePOM;
-import com.logigear.testfw.common.Common;
-import com.logigear.testfw.common.TestExecutor;
-import com.logigear.testfw.driver.BaseDriver;
 import com.logigear.testfw.element.Element;
 
 public class GeneralPage extends BasePOM {
@@ -53,10 +45,10 @@ public class GeneralPage extends BasePOM {
 		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
 	}
 	
-	public void setPagename(String abc)
-	{
-		Element e = new Element(getLocator("lnkPage").getBy(abc));
-	}
+//	public void setPagename(String abc)
+//	{
+//		Element e = new Element(getLocator("lnkPage").getBy(abc));
+//	}
 
 	/**
 	 * Open Add New Page dialog or Edit Page dialog.

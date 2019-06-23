@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 import com.logigear.test.ta_dashboard.data_object.Page;
+import com.logigear.test.ta_dashboard.data_object.User;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.PageDialog;
 import com.logigear.testfw.common.BaseTest;
@@ -15,7 +16,8 @@ public class MPTest_Nhan extends BaseTest{
 	{
 //		Step	Navigate to Dashboard login page
 //		Step	Login with valid account
-		HomePage homePage = precondition();
+		User user = new User("test","test","SampleRepository");
+		HomePage homePage = precondition(user);
 		
 //		Step	Go to Global Setting -> Add page
 		PageDialog pageDialog = homePage.selectAddPage();

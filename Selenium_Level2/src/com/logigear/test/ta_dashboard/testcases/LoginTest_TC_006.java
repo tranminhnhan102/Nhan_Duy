@@ -1,13 +1,11 @@
 package com.logigear.test.ta_dashboard.testcases;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.logigear.test.ta_dashboard.data_object.User;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.testfw.common.BaseTest;
-import com.logigear.testfw.common.TestExecutor;
 import com.logigear.testfw.utilities.SortAssertion;
 
 public class LoginTest_TC_006 extends BaseTest {
