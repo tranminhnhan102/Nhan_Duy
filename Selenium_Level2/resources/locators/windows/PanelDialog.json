@@ -76,6 +76,10 @@
 			"type": "xpath",
 			"value": "//select[@id='cbbStatField']"
 		},
+		"btnOK":{
+			"type": "xpath",
+			"value": "//input[@id='OK']"
+		},
 		"cboDataProfile": {
 			"type": "xpath",
 			"value": "//select[@id='cbbProfile']"
