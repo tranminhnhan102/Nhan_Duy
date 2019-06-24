@@ -93,7 +93,7 @@ public class GeneralPage extends BasePOM {
 			menuElement.moveToElement();
 			selectedElement.click();
 		} catch (Exception error) {
-			LOG.severe(String.format("Has error when select item in %d"));
+			LOG.severe(String.format("Has error when select item"));
 		}
 	}
 	
@@ -107,7 +107,8 @@ public class GeneralPage extends BasePOM {
 		return actualTitle.contains(pageName);
 	}
 
-	 /* @author nhan.tran
+	 /**
+	 *  @author nhan.tran
 	 * @Des: select menu add new page from Global Setting menu
 	 * @return: true if open dialog is successfully
 	 * */
@@ -178,4 +179,14 @@ public class GeneralPage extends BasePOM {
 		String result = element.getText();
 		return result;
 	}
+
+	/**
+	 * @author nhan.tran
+	 * Open Panel List Page
+	 * */
+	public PanelListPage openPanelListPage()
+	{
+		selectMenuItem(itemAdminister, lnkPanel);
+		return new PanelListPage();
 	}
+}

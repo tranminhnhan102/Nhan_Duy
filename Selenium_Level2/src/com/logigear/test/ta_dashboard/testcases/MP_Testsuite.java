@@ -46,4 +46,6 @@ public class MP_Testsuite extends BaseTest{
 		String actual = homePage.getTextOfElementAfter(page.getDisplayAfter());	
 		assertEquals(actual, expected);
 	}
+	
+	
 }
