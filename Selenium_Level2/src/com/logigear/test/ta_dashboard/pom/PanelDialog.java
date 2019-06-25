@@ -1,6 +1,10 @@
 package com.logigear.test.ta_dashboard.pom;
 
+import org.openqa.selenium.Alert;
+
 import com.logigear.test.ta_dashboard.data_object.PanelChartDataObject;
+import com.logigear.testfw.common.Common;
+import com.logigear.testfw.driver.BaseDriver;
 import com.logigear.testfw.element.Element;
 
 public class PanelDialog extends GeneralPage {
@@ -62,19 +66,10 @@ public class PanelDialog extends GeneralPage {
 //	}
 
 	/**
-	 * @author nhan.tran set field for chart type
+	 * @author nhan.tran Set field for chart type
 	 * @param : PanelChartDataObject
 	 */
 	public PanelDialog setFieldForChart(PanelChartDataObject data) {
-//		protected Element tabDisplaySetting;
-//		protected Element radChart;
-//		protected Element radIndicator;
-//		protected Element radReport;
-//		protected Element radHeatMap;
-//		protected Element txtDisplayName;
-//		protected Element txtChartTitle;
-//		protected Element cbbSeriesField;
-//		protected Element txtIndicatorTitle;
 		if (data.getPanelType() == "" || data.getPanelType().toUpperCase() == "CHART") {
 			this.radChart.check();
 		} else
@@ -89,35 +84,35 @@ public class PanelDialog extends GeneralPage {
 		if (data.getChartTitle() != "") {
 			this.txtChartTitle.enter(data.getChartTitle());
 		}
-		
+
 		switch (data.getChartType().toUpperCase()) {
 		case "PIE":
-			if(data.getSeries()=="")
+			if (data.getSeries() == "")
 				IsEmptyrequiredField(data.getSeries());
 			data.setCategory("");
 			break;
 		case "SINGGLE BAR":
-			if(data.getSeries()=="")
+			if (data.getSeries() == "")
 				IsEmptyrequiredField(data.getSeries());
 			data.setCategory("");
 			break;
 		case "STACKED BAR":
-			if(data.getCategory()=="")
+			if (data.getCategory() == "")
 				IsEmptyrequiredField(data.getCategory());
-			if(data.getSeries()=="")
+			if (data.getSeries() == "")
 				IsEmptyrequiredField(data.getSeries());
 			break;
 		case "GROUP":
-			if(data.getCategory()=="")
+			if (data.getCategory() == "")
 				IsEmptyrequiredField(data.getCategory());
-			if(data.getSeries()=="")
+			if (data.getSeries() == "")
 				IsEmptyrequiredField(data.getSeries());
-			break;		
+			break;
 		default:
 			break;
 		}
 		setSettingField(data.getCategory(), data.getSeries(), "");
-		
+
 		return this;
 	}
 
@@ -132,10 +127,9 @@ public class PanelDialog extends GeneralPage {
 		}
 		if (series != "") {
 			this.cbbSeriesField.selectByText(series);
-		} 
-		if(staticField !="")
-		{
-			
+		}
+		if (staticField != "") {
+
 		}
 	}
 
@@ -144,10 +138,10 @@ public class PanelDialog extends GeneralPage {
 	 */
 	public PanelListPage clickOK() {
 		this.btnOK.click();
-		try {
-			
-		} catch (Exception error) {
-			// TODO: handle exception
+		
+		Alert alert = new BaseDriver().isExistAlert(Common.ELEMENT_TIMEOUT);
+		if (alert != null) {
+			alert.accept();
 		}
 		return new PanelListPage();
 	}

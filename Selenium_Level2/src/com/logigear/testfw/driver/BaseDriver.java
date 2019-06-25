@@ -3,6 +3,7 @@ package com.logigear.testfw.driver;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -22,9 +23,9 @@ import com.logigear.testfw.conf.LogWrapper;
  */
 public class BaseDriver {
 	protected static final Logger LOG = LogWrapper.createLogger(BaseDriver.class.getName());
-	
+
 	protected WebDriver _driver;
-	
+
 	protected WebDriver getWebDriver() {
 		return this._driver;
 	}
@@ -40,33 +41,64 @@ public class BaseDriver {
 	public String getTitle() {
 		return _driver.getTitle();
 	}
-	
+
 	public void close() {
-		if(_driver!=null)
+		if (_driver != null)
 			_driver.close();
 	}
 
 	public void quit() {
-		if(_driver!=null)
+		if (_driver != null)
 			_driver.quit();
 	}
-	
+
 	public TargetLocator switchTo() {
-		if(_driver!=null)
+		if (_driver != null)
 			return _driver.switchTo();
 		return null;
 	}
-	
+
 	public Options manage() {
-		if(_driver!=null)
+		if (_driver != null)
 			return _driver.manage();
 		return null;
 	}
-	
+
 	public Actions action() {
 		return new Actions(getWebDriver());
 	}
-	
+
+	/**
+	 * @author Nhan.Tran Alert Methods
+	 */
+	public void sendKeys(String keysToSend) {
+		_driver.switchTo().alert().sendKeys(keysToSend);
+	}
+
+	public String getText() {
+		return _driver.switchTo().alert().getText();
+	}
+
+	public void dismiss() {
+		_driver.switchTo().alert().dismiss();
+	}
+
+	public void accept() {
+		_driver.switchTo().alert().accept();
+	}
+
+	public Alert isExistAlert(int timeOutInSeconds) {
+		Alert alert = null;
+		try {
+			WebDriverWait wait = new WebDriverWait(getWebDriver(), timeOutInSeconds);
+			alert = wait.until(ExpectedConditions.alertIsPresent());
+		} catch (Exception error) {
+			error.printStackTrace();
+			throw error;
+		}
+		return alert;
+	}
+
 	private JavascriptExecutor jsExecutor() {
 		return ((JavascriptExecutor) getWebDriver());
 	}
@@ -74,7 +106,7 @@ public class BaseDriver {
 	public Object executeScript(String script, Object... args) {
 		return jsExecutor().executeScript(script);
 	}
-	
+
 	public WebElement waitForPresent(By locator, int timeOutInSeconds) {
 		WebElement element = null;
 		LOG.info(String.format("Wait for control %s to be present in DOM with timeOut %s", locator.toString(),
@@ -88,10 +120,10 @@ public class BaseDriver {
 		}
 		return element;
 	}
-	
+
 	public List<WebElement> waitForAllElementsPresent(By locator, int timeOutInSeconds) {
 		List<WebElement> elements = null;
-		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s",locator.toString(),
+		LOG.info(String.format("Wait for all controls %s to be present in DOM with timeOut %s", locator.toString(),
 				timeOutInSeconds));
 		try {
 			WebDriverWait wait = new WebDriverWait(getWebDriver(), timeOutInSeconds);
@@ -102,11 +134,11 @@ public class BaseDriver {
 		}
 		return elements;
 	}
-	
+
 	public WebElement waitForDisplay(By locator, int timeOutInSeconds) {
 		WebElement element = null;
 		try {
-			LOG.info(String.format("Wait for control %s to be displayed with timeOut: %s",locator.toString(),
+			LOG.info(String.format("Wait for control %s to be displayed with timeOut: %s", locator.toString(),
 					timeOutInSeconds));
 			WebDriverWait wait = new WebDriverWait(getWebDriver(), timeOutInSeconds);
 			element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -117,7 +149,7 @@ public class BaseDriver {
 		}
 		return element;
 	}
-	
+
 	public void waitForInvisibility(By locator, int timeOutInSeconds) {
 		try {
 			LOG.info(String.format("Wait for control %s to be invisibled", locator.toString()));
@@ -141,7 +173,7 @@ public class BaseDriver {
 		}
 		return elements;
 	}
-	
+
 	public WebElement waitForClickable(By locator, int timeOutInSeconds) {
 		WebElement element = null;
 		try {
