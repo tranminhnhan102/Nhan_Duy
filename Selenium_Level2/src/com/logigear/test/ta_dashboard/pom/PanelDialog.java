@@ -1,13 +1,12 @@
 package com.logigear.test.ta_dashboard.pom;
 
-import org.openqa.selenium.Alert;
-
 import com.logigear.test.ta_dashboard.data_object.PanelChartDataObject;
 import com.logigear.testfw.common.Common;
 import com.logigear.testfw.driver.BaseDriver;
 import com.logigear.testfw.element.Element;
 
 public class PanelDialog extends GeneralPage {
+	protected Element lblPopupTitle;
 	protected Element tabDisplaySetting;
 	protected Element radChart;
 	protected Element radIndicator;
@@ -20,13 +19,15 @@ public class PanelDialog extends GeneralPage {
 	protected Element cbbSeriesField;
 	protected Element txtIndicatorTitle;
 	protected Element btnOK;
-
+	
+	protected BaseDriver driver = new BaseDriver();
 	public PanelDialog() {
 		super(PanelDialog.class);
 	}
 
 	@Override
 	public void initPageElements() {
+		this.lblPopupTitle = new Element(getLocator("lblPopupTitle").getBy());
 		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
 		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
@@ -41,32 +42,9 @@ public class PanelDialog extends GeneralPage {
 		this.btnOK = new Element(getLocator("btnOK").getBy());
 	}
 
-//	/*
-//	 * Author: Tien Tran
-//	 * Method name: clickRadioButton()
-//	 * Purpose/Description: click all radio button on the page
-//	 * clickIndicatorRadioButton()
-//	 * clickReportRadioButton()
-//	 * clickHeatMapRadioButton()
-//	 */
-//
-//	public PanelDialog clickIndicatorRadioButton() {
-//		radIndicator.click();
-//		return this;
-//	}	
-//	
-//	public PanelDialog clickReportRadioButton() {
-//		radReport.click();
-//		return this;
-//	}
-//
-//	public PanelDialog clickHeatMapRadioButton() {
-//		radHeatMap.click();
-//		return this;
-//	}
-
 	/**
-	 * @author nhan.tran Set field for chart type
+	 * @author nhan.tran 
+	 * Set field for chart type
 	 * @param : PanelChartDataObject
 	 */
 	public PanelDialog setFieldForChart(PanelChartDataObject data) {
@@ -138,16 +116,33 @@ public class PanelDialog extends GeneralPage {
 	 */
 	public PanelListPage clickOK() {
 		this.btnOK.click();
-		
-		Alert alert = new BaseDriver().isExistAlert(Common.ELEMENT_TIMEOUT);
-		if (alert != null) {
-			alert.accept();
-		}
 		return new PanelListPage();
 	}
 
-	public PanelDialog setField() {
-		// TODO Auto-generated method stub
-		return null;
+	public void clickOKWithInvalid() {
+		this.btnOK.click();
+	}
+
+	public String getAlertText() {
+		String alertText = "";
+		if (driver.isExistAlert() != null) {
+			alertText = driver.getTextAlert();
+		}
+		
+		return alertText;
+	}
+	public PanelDialog waitForLoading(int timeOutInSeconds) {
+		lblPopupTitle.waitForDisplay(timeOutInSeconds);
+		LOG.info("Panel Dialog is loaded successfully");
+		return this;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public PanelDialog waitForLoading() {
+		waitForLoading(Common.ELEMENT_TIMEOUT);
+		return this;
 	}
 }

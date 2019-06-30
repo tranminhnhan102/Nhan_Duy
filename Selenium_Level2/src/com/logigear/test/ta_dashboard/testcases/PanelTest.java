@@ -1,11 +1,9 @@
 package com.logigear.test.ta_dashboard.testcases;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
 import com.logigear.test.ta_dashboard.data_object.ChartPanel;
 import com.logigear.test.ta_dashboard.data_object.Page;
 import com.logigear.test.ta_dashboard.pom.HomePage;
-import com.logigear.test.ta_dashboard.pom.LoginPage;
 import com.logigear.test.ta_dashboard.pom.PanelDialog;
 import com.logigear.testfw.common.BaseTest;
 

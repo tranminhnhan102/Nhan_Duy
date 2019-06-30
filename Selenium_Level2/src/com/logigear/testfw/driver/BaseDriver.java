@@ -14,6 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.logigear.testfw.common.Common;
 import com.logigear.testfw.conf.LogWrapper;
 
 /**
@@ -71,19 +72,19 @@ public class BaseDriver {
 	/**
 	 * @author Nhan.Tran Alert Methods
 	 */
-	public void sendKeys(String keysToSend) {
+	public void sendKeysAlert(String keysToSend) {
 		_driver.switchTo().alert().sendKeys(keysToSend);
 	}
 
-	public String getText() {
+	public String getTextAlert() {
 		return _driver.switchTo().alert().getText();
 	}
 
-	public void dismiss() {
+	public void dismissAlert() {
 		_driver.switchTo().alert().dismiss();
 	}
 
-	public void accept() {
+	public void acceptAlert() {
 		_driver.switchTo().alert().accept();
 	}
 
@@ -99,6 +100,10 @@ public class BaseDriver {
 		return alert;
 	}
 
+	public Alert isExistAlert() {
+		return isExistAlert(Common.ELEMENT_TIMEOUT);
+	}
+	
 	private JavascriptExecutor jsExecutor() {
 		return ((JavascriptExecutor) getWebDriver());
 	}

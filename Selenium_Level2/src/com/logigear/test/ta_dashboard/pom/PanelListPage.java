@@ -1,7 +1,8 @@
 package com.logigear.test.ta_dashboard.pom;
 
 import com.logigear.testfw.element.Element;
-
+import com.logigear.test.ta_dashboard.data_object.GeneralPanel;
+import com.logigear.test.ta_dashboard.pom.PanelDialog;
 public class PanelListPage extends GeneralPage {
 
 	protected Element lnkAddNew;
@@ -23,7 +24,7 @@ public class PanelListPage extends GeneralPage {
 	 * */
 
 	public PanelDialog clickLinkAddNew() {
-		lnkAddNew.click();
+		this.lnkAddNew.click();
 		return new PanelDialog();
 	}	
 }

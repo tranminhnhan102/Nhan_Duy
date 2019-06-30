@@ -83,6 +83,10 @@
 		"cboDataProfile": {
 			"type": "xpath",
 			"value": "//select[@id='cbbProfile']"
+		},
+		"lblPopupTitle": {
+			"type": "xpath",
+			"value": "//span[text()='Add New Panel']"
 		}
 	}
 }

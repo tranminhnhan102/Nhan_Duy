@@ -18,22 +18,22 @@ public class BaseDataObject {
 	
 	//public BaseDataObject parseData(String dataName) {}
 
-	public void parseData() {
-		String filePath = new StringBuilder()
-							.append(System.getProperty("user.dir"))
-							.append(File.separator)
-							.append("resources").append(File.separator)
-							.append("dataInput").append(File.separator)
-							//.append(dataName + ".json").toString()
-							.append("pageData.json").toString();
-
-		String jsonString = "";
-		try {
-			jsonString = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
+//	public void parseData() {
+//		String filePath = new StringBuilder()
+//							.append(System.getProperty("user.dir"))
+//							.append(File.separator)
+//							.append("resources").append(File.separator)
+//							.append("dataInput").append(File.separator)
+//							//.append(dataName + ".json").toString()
+//							.append("pageData.json").toString();
+//
+//		String jsonString = "";
+//		try {
+//			jsonString = new String(Files.readAllBytes(Paths.get(filePath)), StandardCharsets.UTF_8);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
 }
