@@ -1,5 +1,7 @@
 package com.logigear.test.ta_dashboard.pom;
 
+import org.apache.commons.codec.StringEncoderComparator;
+
 import com.logigear.test.ta_dashboard.data_object.PanelChartDataObject;
 import com.logigear.testfw.common.Common;
 import com.logigear.testfw.driver.BaseDriver;
@@ -7,7 +9,7 @@ import com.logigear.testfw.element.Element;
 
 public class PanelDialog extends GeneralPage {
 	protected Element lblPopupTitle;
-	protected Element tabDisplaySetting;
+//	protected Element tabDisplaySetting;
 	protected Element radChart;
 	protected Element radIndicator;
 	protected Element radReport;
@@ -28,7 +30,7 @@ public class PanelDialog extends GeneralPage {
 	@Override
 	public void initPageElements() {
 		this.lblPopupTitle = new Element(getLocator("lblPopupTitle").getBy());
-		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
+//		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
 		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
 		this.radReport = new Element(getLocator("radReport").getBy());
@@ -48,42 +50,42 @@ public class PanelDialog extends GeneralPage {
 	 * @param : PanelChartDataObject
 	 */
 	public PanelDialog setFieldForChart(PanelChartDataObject data) {
-		if (data.getPanelType() == "" || data.getPanelType().toUpperCase() == "CHART") {
-			this.radChart.check();
+		if (data.getPanelType().toUpperCase().equals("CHART")) {
+			radChart.check();
 		} else
 			return null;
-		if (data.getDataProfile() != "") {
-			this.cbbProfile.selectByText(data.getDataProfile());
+		if (!data.getDataProfile().equals("")) {
+			cbbProfile.selectByText(data.getDataProfile());
 		}
-		if (data.getDisplayName() != "") {
-			this.txtDisplayName.enter(data.getDisplayName());
+		if (!data.getDisplayName().equals("")) {
+			txtDisplayName.enter(data.getDisplayName());
 		} else
 			IsEmptyrequiredField("Display Name");
-		if (data.getChartTitle() != "") {
-			this.txtChartTitle.enter(data.getChartTitle());
+		if (!data.getChartTitle().equals("")) {
+			txtChartTitle.enter(data.getChartTitle());
 		}
 
 		switch (data.getChartType().toUpperCase()) {
 		case "PIE":
-			if (data.getSeries() == "")
+			if (data.getSeries().equals(""))
 				IsEmptyrequiredField(data.getSeries());
 			data.setCategory("");
 			break;
 		case "SINGGLE BAR":
-			if (data.getSeries() == "")
+			if (data.getSeries().equals(""))
 				IsEmptyrequiredField(data.getSeries());
 			data.setCategory("");
 			break;
 		case "STACKED BAR":
-			if (data.getCategory() == "")
+			if (data.getCategory().equals(""))
 				IsEmptyrequiredField(data.getCategory());
-			if (data.getSeries() == "")
+			if (data.getSeries().equals(""))
 				IsEmptyrequiredField(data.getSeries());
 			break;
 		case "GROUP":
-			if (data.getCategory() == "")
+			if (data.getCategory().equals(""))
 				IsEmptyrequiredField(data.getCategory());
-			if (data.getSeries() == "")
+			if (data.getSeries().equals(""))
 				IsEmptyrequiredField(data.getSeries());
 			break;
 		default:
@@ -100,13 +102,15 @@ public class PanelDialog extends GeneralPage {
 	}
 
 	protected void setSettingField(String category, String series, String staticField) {
-		if (category != "") {
+		if (!category.equals("")) {
 			this.cbbCategoryField.selectByText(category);
 		}
-		if (series != "") {
-			this.cbbSeriesField.selectByText(series);
+		if (!series.equals("")) {
+//			this.cbbSeriesField.selectByText(series);
+			cbbSeriesField.click();
+			
 		}
-		if (staticField != "") {
+		if (!staticField.equals("")) {
 
 		}
 	}
