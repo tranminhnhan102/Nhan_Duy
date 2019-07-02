@@ -70,7 +70,8 @@ public class BaseDriver {
 	}
 
 	/**
-	 * @author Nhan.Tran Alert Methods
+	 * @author Nhan.Tran 
+	 * Alert Methods
 	 */
 	public void sendKeysAlert(String keysToSend) {
 		_driver.switchTo().alert().sendKeys(keysToSend);

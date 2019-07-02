@@ -1,15 +1,16 @@
 package com.logigear.test.ta_dashboard.pom;
 
-import org.apache.commons.codec.StringEncoderComparator;
+import org.openqa.selenium.WebDriver;
 
 import com.logigear.test.ta_dashboard.data_object.PanelChartDataObject;
 import com.logigear.testfw.common.Common;
+import com.logigear.testfw.common.TestExecutor;
 import com.logigear.testfw.driver.BaseDriver;
 import com.logigear.testfw.element.Element;
 
 public class PanelDialog extends GeneralPage {
 	protected Element lblPopupTitle;
-//	protected Element tabDisplaySetting;
+	protected Element tabDisplaySettings;
 	protected Element radChart;
 	protected Element radIndicator;
 	protected Element radReport;
@@ -21,8 +22,8 @@ public class PanelDialog extends GeneralPage {
 	protected Element cbbSeriesField;
 	protected Element txtIndicatorTitle;
 	protected Element btnOK;
-	
-	protected BaseDriver driver = new BaseDriver();
+//
+//	protected BaseDriver driver = TestExecutor.getInstance().getCurrentDriver();
 	public PanelDialog() {
 		super(PanelDialog.class);
 	}
@@ -30,7 +31,7 @@ public class PanelDialog extends GeneralPage {
 	@Override
 	public void initPageElements() {
 		this.lblPopupTitle = new Element(getLocator("lblPopupTitle").getBy());
-//		this.tabDisplaySetting = new Element(getLocator("tabDisplaySetting").getBy());
+		this.tabDisplaySettings = new Element(getLocator("tabDisplaySettings").getBy());
 		this.radChart = new Element(getLocator("radChart").getBy());
 		this.radIndicator = new Element(getLocator("radIndicator").getBy());
 		this.radReport = new Element(getLocator("radReport").getBy());
@@ -45,8 +46,7 @@ public class PanelDialog extends GeneralPage {
 	}
 
 	/**
-	 * @author nhan.tran 
-	 * Set field for chart type
+	 * @author nhan.tran Set field for chart type
 	 * @param : PanelChartDataObject
 	 */
 	public PanelDialog setFieldForChart(PanelChartDataObject data) {
@@ -108,7 +108,7 @@ public class PanelDialog extends GeneralPage {
 		if (!series.equals("")) {
 //			this.cbbSeriesField.selectByText(series);
 			cbbSeriesField.click();
-			
+
 		}
 		if (!staticField.equals("")) {
 
@@ -129,12 +129,14 @@ public class PanelDialog extends GeneralPage {
 
 	public String getAlertText() {
 		String alertText = "";
+		BaseDriver driver = TestExecutor.getInstance().getCurrentDriver();
 		if (driver.isExistAlert() != null) {
 			alertText = driver.getTextAlert();
 		}
-		
+
 		return alertText;
 	}
+
 	public PanelDialog waitForLoading(int timeOutInSeconds) {
 		lblPopupTitle.waitForDisplay(timeOutInSeconds);
 		LOG.info("Panel Dialog is loaded successfully");

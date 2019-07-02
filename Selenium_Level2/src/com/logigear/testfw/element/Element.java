@@ -282,6 +282,14 @@ public class Element extends BaseElement {
 		selectByValue(Common.ELEMENT_LONG_TIMEOUT, value);
 	}
 
+	//
+	public void selectOptGroupByText(String xpathOptGroup, String text)
+	{
+		this.click();
+//		String xpathStr = xpathOptGroup + "/"+
+//		"//select[@id='cbbSeriesField']/optgroup[@label='Action']/option[contains(normalize-space(.),'  Name')]"
+	}
+	
 	public String getSelectedOption(int timeOutInSeconds) {
 		String selected = null;
 		if (timeOutInSeconds <= 0) {
