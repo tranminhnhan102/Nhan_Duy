@@ -282,14 +282,17 @@ public class Element extends BaseElement {
 		selectByValue(Common.ELEMENT_LONG_TIMEOUT, value);
 	}
 
-	//
-	public void selectOptGroupByText(String xpathOptGroup, String text)
-	{
+	/**
+	 * @author Nhan.Tran Select item from group
+	 */
+	public void selectOptGroupByValue(String labelGroup, String value) {
+		String xpathStr = getLocator().toString()
+				+ String.format("/optgroup[@label='%s']/option[@value='%s']", labelGroup, value);
+		Element item = new Element(xpathStr);
 		this.click();
-//		String xpathStr = xpathOptGroup + "/"+
-//		"//select[@id='cbbSeriesField']/optgroup[@label='Action']/option[contains(normalize-space(.),'  Name')]"
+		item.waitForClickable(Common.ELEMENT_TIMEOUT).click();
 	}
-	
+
 	public String getSelectedOption(int timeOutInSeconds) {
 		String selected = null;
 		if (timeOutInSeconds <= 0) {

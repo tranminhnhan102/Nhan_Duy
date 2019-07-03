@@ -1,7 +1,5 @@
 package com.logigear.test.ta_dashboard.pom;
 
-import org.openqa.selenium.WebDriver;
-
 import com.logigear.test.ta_dashboard.data_object.PanelChartDataObject;
 import com.logigear.testfw.common.Common;
 import com.logigear.testfw.common.TestExecutor;
@@ -22,6 +20,7 @@ public class PanelDialog extends GeneralPage {
 	protected Element cbbSeriesField;
 	protected Element txtIndicatorTitle;
 	protected Element btnOK;
+	protected Element itemOfSeriesField;
 //
 //	protected BaseDriver driver = TestExecutor.getInstance().getCurrentDriver();
 	public PanelDialog() {
@@ -107,7 +106,7 @@ public class PanelDialog extends GeneralPage {
 		}
 		if (!series.equals("")) {
 //			this.cbbSeriesField.selectByText(series);
-			cbbSeriesField.click();
+			cbbSeriesField.selectOptGroupByValue("Action",series);
 
 		}
 		if (!staticField.equals("")) {

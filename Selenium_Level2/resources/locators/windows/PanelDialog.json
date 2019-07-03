@@ -87,6 +87,10 @@
 		"lblPopupTitle": {
 			"type": "xpath",
 			"value": "//span[text()='Add New Panel']"
+		},
+		"itemOfSeriesField": {
+			"type": "xpath",
+			"value": "//select[@id='cbbSeriesField']/optgroup[@label='Action']/option[@value='name']"
 		}
 	}
 }

@@ -26,8 +26,8 @@ public class PANEL_Testsuite extends BaseTest{
 	{
 		//Prepage data
 		User user = new User("test","test","SampleRepository");
-		PanelChartDataObject panelInvalid = new PanelChartDataObject("Chart", "", "Logigear", "Chart#$%", "", "", "", "Name", true);
-		PanelChartDataObject panelValid = new PanelChartDataObject("Chart", "", "Logigear@", "Chart@", "", "", "", "Name", true);
+		PanelChartDataObject panelInvalid = new PanelChartDataObject("Chart", "", "Logigear", "Chart#$%", "", "", "", "name", true);
+		PanelChartDataObject panelValid = new PanelChartDataObject("Chart", "", "Logigear@", "Chart@", "", "", "", "name", true);
 		
 //		Step	Navigate to Dashboard login page
 //		Step	Login with valid account
