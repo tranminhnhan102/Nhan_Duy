@@ -106,7 +106,8 @@ public class PanelDialog extends GeneralPage {
 		}
 		if (!series.equals("")) {
 //			this.cbbSeriesField.selectByText(series);
-			cbbSeriesField.selectOptGroupByValue("Action",series);
+//			cbbSeriesField.selectOptGroupByValue("Action",series);
+			cbbSeriesField.selectByVisibleText(series);
 
 		}
 		if (!staticField.equals("")) {

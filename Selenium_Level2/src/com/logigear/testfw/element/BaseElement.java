@@ -40,7 +40,9 @@ abstract class BaseElement{
 	protected WebElement getElement() {
 		return waitForDisplay(Common.ELEMENT_TIMEOUT);
 	}
-
+	protected WebElement getElementWithOutWait() {
+		return waitForDisplay(Common.ELEMENT_TIMEOUT);
+	}
 	protected List<WebElement> getWebElements() {
 		return waitForAllElementsDisplay(Common.ELEMENT_TIMEOUT);
 	}

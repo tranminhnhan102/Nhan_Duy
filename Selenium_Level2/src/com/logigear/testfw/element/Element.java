@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -256,7 +257,31 @@ public class Element extends BaseElement {
 	public void selectByText(String text) {
 		selectByText(Common.ELEMENT_LONG_TIMEOUT, text);
 	}
+	public void selectByVisibleText(int timeOutInSeconds, String text) {
+		if (timeOutInSeconds <= 0) {
+			LOG.severe("The time out is invalid. It must greater than 0");
+			return;
+		}
+		Stopwatch sw = Stopwatch.createStarted();
+		try {
+			LOG.info(String.format("Select the option of the control %s by text", getLocator().toString()));
+			selection(timeOutInSeconds).selectByVisibleText(text);
+		} catch (StaleElementReferenceException ex) {
+			if (sw.elapsed(TimeUnit.SECONDS) <= (long) timeOutInSeconds) {
+				LOG.warning(String.format("Try to select the option of the control %s by text again",
+						getLocator().toString()));
+				selectByVisibleText(text);
+//				selectByText(timeOutInSeconds - (int) sw.elapsed(TimeUnit.SECONDS), text);
+			}
+		} catch (Exception error) {
+			LOG.severe(String.format("Has error with control '%s': %s", getLocator().toString(), error.getMessage()));
+			throw error;
+		}
+	}
 
+	public void selectByVisibleText(String text) {
+		selectByText(Common.ELEMENT_LONG_TIMEOUT, text);
+	}
 	public void selectByValue(int timeOutInSeconds, String value) {
 		if (timeOutInSeconds <= 0) {
 			LOG.severe("The time out is invalid. It must greater than 0");
@@ -288,9 +313,17 @@ public class Element extends BaseElement {
 	public void selectOptGroupByValue(String labelGroup, String value) {
 		String xpathStr = getLocator().toString()
 				+ String.format("/optgroup[@label='%s']/option[@value='%s']", labelGroup, value);
-		Element item = new Element(xpathStr);
 		this.click();
-		item.waitForClickable(Common.ELEMENT_TIMEOUT).click();
+		Element e = new Element(xpathStr);
+		action().click(e.getElement());
+		action().perform();
+		e.selectByText(xpathStr);
+//		e.moveToElement();
+//		e.click();
+//		Element item = new Element(xpathStr);
+//		JavascriptExecutor executer = (JavascriptExecutor)TestExecutor.getInstance().getCurrentDriver();
+//		executer.executeScript("arguments[0].click();", item);
+		
 	}
 
 	public String getSelectedOption(int timeOutInSeconds) {
