@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="methods" thread-count="2">
+<suite name="Suite" parallel="methods" thread-count="1">
 	<test name="FirstTest">
 		<parameter name="environment" value="windows-chrome" />
 		<classes>
-			<class name="com.logigear.test.ta_dashboard.testcases.LOGIN_Testsuite" />
+<!-- 			<class name="com.logigear.test.ta_dashboard.testcases.LOGIN_Testsuite" /> -->
+			<class name="com.logigear.test.ta_dashboard.testcases.MP_Testsuite" />
+			<class name="com.logigear.test.ta_dashboard.testcases.PANEL_Testsuite" />
 		</classes>
 	</test>
 </suite>

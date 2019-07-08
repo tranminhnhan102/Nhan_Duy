@@ -8,15 +8,15 @@
 			"type": "xpath",
 			"value": "//div[@id='header']//a/span"
 		},
-		"itemAdministrator": {
+		"itemUser": {
 			"type": "xpath",
-			"value": "//a[text()='administrator']"
+			"value": "//a[@href='#Welcome']"
 		},
 		"lnkMyProfile": {
 			"type": "xpath",
 			"value": "//a[text()='My Profile']"
 		},
-		"lnkLogout ": {
+		"lnkLogout": {
 			"type": "xpath",
 			"value": "//a[text()='Logout']"
 		},

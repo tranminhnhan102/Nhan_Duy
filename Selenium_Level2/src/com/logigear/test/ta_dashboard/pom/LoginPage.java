@@ -40,7 +40,7 @@ public class LoginPage extends BasePOM{
 		txtUsername.enter(username);
 		txtPassword.enter(password);
 		btnLogin.click();
-		return new HomePage().waitForLoading();
+		return new HomePage();
 	}
 
 	/**

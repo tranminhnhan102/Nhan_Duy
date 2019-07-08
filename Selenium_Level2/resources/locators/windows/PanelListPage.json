@@ -3,6 +3,14 @@
 		"lnkAddNew": {
 			"type": "xpath",
 			"value": "//a[text()='Add New']"
+		},
+		"lblPanelName": {
+			"type": "xpath",
+			"value": "//div[@id='ccontent']//table[//th[.='Panel Name']]"
+		},
+		"btnDeleteItem": {
+			"type": "xpath",
+			"value": "//tr[//td/a[text()='%s']]//a[text()='Delete']"
 		}
 	}
 }

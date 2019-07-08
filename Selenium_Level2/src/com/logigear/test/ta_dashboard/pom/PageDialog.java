@@ -79,7 +79,7 @@ public class PageDialog extends GeneralPage {
 
 	public boolean isOpenAddPageAgains() {
 		try {
-			selectAddPage();
+			lnkGlobalSetting.click();
 			return true;
 		} catch (Exception error) {
 			return false;

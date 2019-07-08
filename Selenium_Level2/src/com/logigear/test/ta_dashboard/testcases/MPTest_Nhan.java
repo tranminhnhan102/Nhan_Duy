@@ -8,9 +8,8 @@ import com.logigear.test.ta_dashboard.data_object.Page;
 import com.logigear.test.ta_dashboard.data_object.User;
 import com.logigear.test.ta_dashboard.pom.HomePage;
 import com.logigear.test.ta_dashboard.pom.PageDialog;
-import com.logigear.testfw.common.BaseTest;
 
-public class MPTest_Nhan extends BaseTest{
+public class MPTest_Nhan extends GeneralTest{
 	@Test
 	public void DA_MP_TC012()
 	{

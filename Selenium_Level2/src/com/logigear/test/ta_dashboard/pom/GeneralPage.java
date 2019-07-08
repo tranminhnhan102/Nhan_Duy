@@ -16,18 +16,19 @@ public class GeneralPage extends BasePOM {
 
 	// Element
 	protected Element lnkMyProfile;
+	protected Element lnkLogout;
 	protected Element tabExecutionDashboard;
 	protected Element lnkGlobalSetting;
 	protected Element lnkAddPage;
 	protected Element lnkChoosePanels;
 	protected Element btnCreateNewPanel;
 	protected Element lnkCreatePanel;
+	protected Element itemUser;
 	protected Element itemAdminister;
 	protected Element lnkPanel;
 	protected Element lnkPage;
 	public Page page;
-	
-	
+
 	public GeneralPage(Class<?> derivedClass) {
 		super(derivedClass);
 	}
@@ -35,16 +36,18 @@ public class GeneralPage extends BasePOM {
 	@Override
 	public void initPageElements() {
 		this.lnkMyProfile = new Element(getLocator("lnkMyProfile").getBy());
+		this.lnkLogout = new Element(getLocator("lnkLogout").getBy());
 		this.tabExecutionDashboard = new Element(getLocator("tabExecutionDashboard").getBy());
 		this.lnkGlobalSetting = new Element(getLocator("lnkGlobalSetting").getBy());
 		this.lnkAddPage = new Element(getLocator("lnkAddPage").getBy());
 		this.lnkChoosePanels = new Element(getLocator("lnkChoosePanels").getBy());
 		this.btnCreateNewPanel = new Element(getLocator("btnCreateNewPanel").getBy());
 		this.lnkCreatePanel = new Element(getLocator("lnkCreatePanel").getBy());
+		this.itemUser = new Element(getLocator("itemUser").getBy());
 		this.itemAdminister = new Element(getLocator("itemAdminister").getBy());
 		this.lnkPanel = new Element(getLocator("lnkPanel").getBy());
 	}
-	
+
 //	public void setPagename(String abc)
 //	{
 //		Element e = new Element(getLocator("lnkPage").getBy(abc));
@@ -96,28 +99,27 @@ public class GeneralPage extends BasePOM {
 			LOG.severe(String.format("Has error when select item"));
 		}
 	}
-	
+
 	/**
 	 * @author hanh.nguyen
 	 * @Description: Verify that the page is opened or not
-	 * @param pageName	name of the page
+	 * @param pageName name of the page
 	 */
 	public boolean isPageOpened(String pageName) {
 		String actualTitle = TestExecutor.getInstance().getCurrentDriver().getTitle();
 		return actualTitle.contains(pageName);
 	}
 
-	 /**
-	 *  @author nhan.tran
+	/**
+	 * @author nhan.tran
 	 * @Des: select menu add new page from Global Setting menu
 	 * @return: true if open dialog is successfully
-	 * */
-	
-	 public PageDialog selectAddPage()
-		{
-			selectMenuItem(lnkGlobalSetting, lnkAddPage);
-			return new PageDialog();
-		}
+	 */
+
+	public PageDialog selectAddPage() {
+		selectMenuItem(lnkGlobalSetting, lnkAddPage);
+		return new PageDialog();
+	}
 
 	/**
 	 * @author: duy.nguyen
@@ -146,7 +148,7 @@ public class GeneralPage extends BasePOM {
 		} else {
 			String xpathMainPath = String.format(xpathMainSection, menuPath);
 			Element lnkXpathMainPath = new Element(xpathMainPath);
-			
+
 			try {
 				lnkXpathMainPath.waitForDisplay(timeOutInSeconds);
 				lnkXpathMainPath.click();
@@ -166,14 +168,13 @@ public class GeneralPage extends BasePOM {
 		String url = TestExecutor.getInstance().getCurrentDriver().getCurrentUrl();
 		return url;
 	}
-	
+
 	/**
 	 * @author NhanTran
 	 * @description: Get "Test" page is displayed besides "Overview" page
-	 * */
-	
-	public String getTextOfElementAfter(String elementBefore)
-	{
+	 */
+
+	public String getTextOfElementAfter(String elementBefore) {
 		String xpath = String.format("(//ul[./li/a[text()='%s']]/li)[2]", elementBefore);
 		Element element = new Element(xpath);
 		String result = element.getText();
@@ -181,12 +182,18 @@ public class GeneralPage extends BasePOM {
 	}
 
 	/**
-	 * @author nhan.tran
-	 * Open Panel List Page
-	 * */
-	public PanelListPage openPanelListPage()
-	{
+	 * @author nhan.tran Open Panel List Page
+	 */
+	public PanelListPage openPanelListPage() {
 		selectMenuItem(itemAdminister, lnkPanel);
 		return new PanelListPage();
+	}
+
+	/**
+	 * 
+	 * */
+
+	public void logout() {
+		selectMenuItem(itemUser, lnkLogout);
 	}
 }

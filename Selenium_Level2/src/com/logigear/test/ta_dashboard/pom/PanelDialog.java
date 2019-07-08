@@ -21,6 +21,7 @@ public class PanelDialog extends GeneralPage {
 	protected Element txtIndicatorTitle;
 	protected Element btnOK;
 	protected Element itemOfSeriesField;
+
 //
 //	protected BaseDriver driver = TestExecutor.getInstance().getCurrentDriver();
 	public PanelDialog() {
@@ -119,22 +120,32 @@ public class PanelDialog extends GeneralPage {
 	 * @author nhan.tran click OK button
 	 */
 	public PanelListPage clickOK() {
-		this.btnOK.click();
+		btnOK.click();
 		return new PanelListPage();
 	}
 
 	public void clickOKWithInvalid() {
-		this.btnOK.click();
+		btnOK.click();
 	}
 
+	/**
+	 * @author minhNhan Get alert text
+	 */
 	public String getAlertText() {
 		String alertText = "";
 		BaseDriver driver = TestExecutor.getInstance().getCurrentDriver();
 		if (driver.isExistAlert() != null) {
 			alertText = driver.getTextAlert();
 		}
-
 		return alertText;
+	}
+
+	/**
+	 * @author minhNhan Close alert
+	 */
+	public PanelDialog closeAlert() {
+		TestExecutor.getInstance().getCurrentDriver().acceptAlert();
+		return this;
 	}
 
 	public PanelDialog waitForLoading(int timeOutInSeconds) {
