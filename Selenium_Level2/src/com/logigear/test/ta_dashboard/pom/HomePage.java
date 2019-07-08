@@ -33,7 +33,7 @@ public class HomePage extends GeneralPage {
 		waitForLoading(Common.ELEMENT_TIMEOUT);
 		return this;
 	}
-	
+
 	/**
 	 * @author nhan.tran
 	 * @Description: Check main page apears.
@@ -45,15 +45,5 @@ public class HomePage extends GeneralPage {
 		return tabExecutionDashboard.isExisted();
 	}
 	
-	/**
-	 * @author tien.duc.tran
-	 * @description select Panel menu item
-	 * 
-	 */
-	
-	public PanelListPage selectPanel() {
-		this.selectMenuItem(itemAdminister, lnkPanel);
 
-		return new PanelListPage();
-	}
 }

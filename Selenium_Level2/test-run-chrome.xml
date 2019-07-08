@@ -5,7 +5,7 @@
 		<parameter name="environment" value="windows-chrome" />
 		<classes>
 <!-- 			<class name="com.logigear.test.ta_dashboard.testcases.LOGIN_Testsuite" /> -->
-			<class name="com.logigear.test.ta_dashboard.testcases.MP_Testsuite" />
+<!-- 			<class name="com.logigear.test.ta_dashboard.testcases.MP_Testsuite" /> -->
 			<class name="com.logigear.test.ta_dashboard.testcases.PANEL_Testsuite" />
 		</classes>
 	</test>

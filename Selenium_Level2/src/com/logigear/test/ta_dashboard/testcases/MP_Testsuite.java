@@ -43,7 +43,8 @@ public class MP_Testsuite extends GeneralTest{
 		
 //		VP	Check "Test" page is displayed besides "Overview" page
 		String expected = page.getPageName();
-		String actual = homePage.getTextOfElementAfter(page.getDisplayAfter());	
+		String actual = homePage.getTextOfElementAfter(page.getDisplayAfter());
+		
 		assertEquals(actual, expected);
 	}
 	
